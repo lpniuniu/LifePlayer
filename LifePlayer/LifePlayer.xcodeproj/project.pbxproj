@@ -35,6 +35,7 @@
 		0B11E2901EC9C8D5002D86BF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E28F1EC9C8D5002D86BF /* Accelerate.framework */; };
 		0B11E2921EC9C8DC002D86BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2911EC9C8DC002D86BF /* QuartzCore.framework */; };
 		0B11E2941EC9C8EC002D86BF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2931EC9C8EC002D86BF /* OpenGLES.framework */; };
+		523FB89C7A145533CAE4BD70 /* libPods-LifePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1894266AA2BF2C61F3E860F /* libPods-LifePlayer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,9 @@
 		0B11E28F1EC9C8D5002D86BF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		0B11E2911EC9C8DC002D86BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0B11E2931EC9C8EC002D86BF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		8F23F5E596171C2D3E6BAAA9 /* Pods-LifePlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifePlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifePlayer/Pods-LifePlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		A1E7C4E996F1836D3FFE0251 /* Pods-LifePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifePlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifePlayer/Pods-LifePlayer.release.xcconfig"; sourceTree = "<group>"; };
+		E1894266AA2BF2C61F3E860F /* libPods-LifePlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LifePlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 				0B11E26C1EC9C63E002D86BF /* libavutil.a in Frameworks */,
 				0B11E26D1EC9C63E002D86BF /* libswresample.a in Frameworks */,
 				0B11E26E1EC9C63E002D86BF /* libswscale.a in Frameworks */,
+				523FB89C7A145533CAE4BD70 /* libPods-LifePlayer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +124,7 @@
 				0B11E23A1EC9C224002D86BF /* LifePlayer */,
 				0B11E2391EC9C224002D86BF /* Products */,
 				0B11E2521EC9C5EA002D86BF /* Frameworks */,
+				AFCCC151EBE22BA40A025A12 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,6 +187,7 @@
 				0B11E2571EC9C5EA002D86BF /* libavutil.a */,
 				0B11E2581EC9C5EA002D86BF /* libswresample.a */,
 				0B11E2591EC9C5EA002D86BF /* libswscale.a */,
+				E1894266AA2BF2C61F3E860F /* libPods-LifePlayer.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -202,6 +209,15 @@
 			name = kxmovie;
 			sourceTree = "<group>";
 		};
+		AFCCC151EBE22BA40A025A12 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F23F5E596171C2D3E6BAAA9 /* Pods-LifePlayer.debug.xcconfig */,
+				A1E7C4E996F1836D3FFE0251 /* Pods-LifePlayer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -209,9 +225,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B11E24F1EC9C224002D86BF /* Build configuration list for PBXNativeTarget "LifePlayer" */;
 			buildPhases = (
+				F41043526098704419848EAA /* [CP] Check Pods Manifest.lock */,
 				0B11E2341EC9C224002D86BF /* Sources */,
 				0B11E2351EC9C224002D86BF /* Frameworks */,
 				0B11E2361EC9C224002D86BF /* Resources */,
+				7F13339CB21D32634870FD69 /* [CP] Embed Pods Frameworks */,
+				B01BDA3CD8C8148DDD5D85F8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -269,6 +288,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7F13339CB21D32634870FD69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LifePlayer/Pods-LifePlayer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B01BDA3CD8C8148DDD5D85F8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LifePlayer/Pods-LifePlayer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F41043526098704419848EAA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0B11E2341EC9C224002D86BF /* Sources */ = {
@@ -348,6 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/LifePlayer/FFmepg/include";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -391,6 +459,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/LifePlayer/FFmepg/include";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -401,11 +470,11 @@
 		};
 		0B11E2501EC9C224002D86BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F23F5E596171C2D3E6BAAA9 /* Pods-LifePlayer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 327979M4M2;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/LifePlayer/LifePlayer-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/LifePlayer/FFmepg/include";
 				INFOPLIST_FILE = LifePlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -419,11 +488,11 @@
 		};
 		0B11E2511EC9C224002D86BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1E7C4E996F1836D3FFE0251 /* Pods-LifePlayer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 327979M4M2;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/LifePlayer/LifePlayer-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/LifePlayer/FFmepg/include";
 				INFOPLIST_FILE = LifePlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
