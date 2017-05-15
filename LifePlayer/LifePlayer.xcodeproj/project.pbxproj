@@ -68,7 +68,6 @@
 		0B11E2771EC9C894002D86BF /* KxAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KxAudioManager.h; path = LifePlayer/kxmovie/KxAudioManager.h; sourceTree = "<group>"; };
 		0B11E2781EC9C894002D86BF /* KxAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KxAudioManager.m; path = LifePlayer/kxmovie/KxAudioManager.m; sourceTree = "<group>"; };
 		0B11E2791EC9C894002D86BF /* KxLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KxLogger.h; path = LifePlayer/kxmovie/KxLogger.h; sourceTree = "<group>"; };
-		0B11E27A1EC9C894002D86BF /* kxmovie-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "kxmovie-Prefix.pch"; path = "LifePlayer/kxmovie/kxmovie-Prefix.pch"; sourceTree = "<group>"; };
 		0B11E27B1EC9C894002D86BF /* kxmovie.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = kxmovie.bundle; path = LifePlayer/kxmovie/kxmovie.bundle; sourceTree = "<group>"; };
 		0B11E27C1EC9C894002D86BF /* KxMovieDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KxMovieDecoder.h; path = LifePlayer/kxmovie/KxMovieDecoder.h; sourceTree = "<group>"; };
 		0B11E27D1EC9C894002D86BF /* KxMovieDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KxMovieDecoder.m; path = LifePlayer/kxmovie/KxMovieDecoder.m; sourceTree = "<group>"; };
@@ -192,7 +191,6 @@
 				0B11E2771EC9C894002D86BF /* KxAudioManager.h */,
 				0B11E2781EC9C894002D86BF /* KxAudioManager.m */,
 				0B11E2791EC9C894002D86BF /* KxLogger.h */,
-				0B11E27A1EC9C894002D86BF /* kxmovie-Prefix.pch */,
 				0B11E27B1EC9C894002D86BF /* kxmovie.bundle */,
 				0B11E27C1EC9C894002D86BF /* KxMovieDecoder.h */,
 				0B11E27D1EC9C894002D86BF /* KxMovieDecoder.m */,
@@ -456,6 +454,7 @@
 				0B11E2511EC9C224002D86BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "KxMovieViewController.h"
 
 @interface ViewController ()
 
@@ -17,7 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"xlt" ofType:@"mkv"];
     
+    KxMovieViewController *vc = [KxMovieViewController movieViewControllerWithContentPath:path parameters:nil];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 
