@@ -20,6 +20,9 @@
 		0B11E26C1EC9C63E002D86BF /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2651EC9C63E002D86BF /* libavutil.a */; };
 		0B11E26D1EC9C63E002D86BF /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2661EC9C63E002D86BF /* libswresample.a */; };
 		0B11E26E1EC9C63E002D86BF /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2671EC9C63E002D86BF /* libswscale.a */; };
+		0B11E2711EC9C78E002D86BF /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E26F1EC9C764002D86BF /* libiconv.2.dylib */; };
+		0B11E2731EC9C7B6002D86BF /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2721EC9C7B6002D86BF /* libz.1.dylib */; };
+		0B11E2751EC9C7D4002D86BF /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2741EC9C7D4002D86BF /* libbz2.1.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,9 @@
 		0B11E2651EC9C63E002D86BF /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = LifePlayer/FFmepg/lib/libavutil.a; sourceTree = "<group>"; };
 		0B11E2661EC9C63E002D86BF /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswresample.a; path = LifePlayer/FFmepg/lib/libswresample.a; sourceTree = "<group>"; };
 		0B11E2671EC9C63E002D86BF /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswscale.a; path = LifePlayer/FFmepg/lib/libswscale.a; sourceTree = "<group>"; };
+		0B11E26F1EC9C764002D86BF /* libiconv.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.dylib; path = ../../../../../usr/lib/libiconv.2.dylib; sourceTree = "<group>"; };
+		0B11E2721EC9C7B6002D86BF /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
+		0B11E2741EC9C7D4002D86BF /* libbz2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.1.0.dylib; path = ../../../../../usr/lib/libbz2.1.0.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B11E2731EC9C7B6002D86BF /* libz.1.dylib in Frameworks */,
+				0B11E2711EC9C78E002D86BF /* libiconv.2.dylib in Frameworks */,
+				0B11E2751EC9C7D4002D86BF /* libbz2.1.0.dylib in Frameworks */,
 				0B11E2681EC9C63E002D86BF /* libavcodec.a in Frameworks */,
 				0B11E2691EC9C63E002D86BF /* libavdevice.a in Frameworks */,
 				0B11E26A1EC9C63E002D86BF /* libavfilter.a in Frameworks */,
@@ -111,6 +120,9 @@
 		0B11E2521EC9C5EA002D86BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0B11E2741EC9C7D4002D86BF /* libbz2.1.0.dylib */,
+				0B11E2721EC9C7B6002D86BF /* libz.1.dylib */,
+				0B11E26F1EC9C764002D86BF /* libiconv.2.dylib */,
 				0B11E2611EC9C63E002D86BF /* libavcodec.a */,
 				0B11E2621EC9C63E002D86BF /* libavdevice.a */,
 				0B11E2631EC9C63E002D86BF /* libavfilter.a */,
