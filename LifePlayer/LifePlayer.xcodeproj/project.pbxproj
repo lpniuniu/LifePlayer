@@ -13,6 +13,13 @@
 		0B11E2461EC9C224002D86BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B11E2441EC9C224002D86BF /* Main.storyboard */; };
 		0B11E2481EC9C224002D86BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B11E2471EC9C224002D86BF /* Assets.xcassets */; };
 		0B11E24B1EC9C224002D86BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B11E2491EC9C224002D86BF /* LaunchScreen.storyboard */; };
+		0B11E2681EC9C63E002D86BF /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2611EC9C63E002D86BF /* libavcodec.a */; };
+		0B11E2691EC9C63E002D86BF /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2621EC9C63E002D86BF /* libavdevice.a */; };
+		0B11E26A1EC9C63E002D86BF /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2631EC9C63E002D86BF /* libavfilter.a */; };
+		0B11E26B1EC9C63E002D86BF /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2641EC9C63E002D86BF /* libavformat.a */; };
+		0B11E26C1EC9C63E002D86BF /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2651EC9C63E002D86BF /* libavutil.a */; };
+		0B11E26D1EC9C63E002D86BF /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2661EC9C63E002D86BF /* libswresample.a */; };
+		0B11E26E1EC9C63E002D86BF /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2671EC9C63E002D86BF /* libswscale.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +33,20 @@
 		0B11E2471EC9C224002D86BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B11E24A1EC9C224002D86BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B11E24C1EC9C224002D86BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B11E2531EC9C5EA002D86BF /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = "../../FFmpeg-iOS-build-script/thin/arm64/lib/libavcodec.a"; sourceTree = "<group>"; };
+		0B11E2541EC9C5EA002D86BF /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavdevice.a; path = "../../FFmpeg-iOS-build-script/thin/arm64/lib/libavdevice.a"; sourceTree = "<group>"; };
+		0B11E2551EC9C5EA002D86BF /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavfilter.a; path = "../../FFmpeg-iOS-build-script/thin/arm64/lib/libavfilter.a"; sourceTree = "<group>"; };
+		0B11E2561EC9C5EA002D86BF /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavformat.a; path = "../../FFmpeg-iOS-build-script/thin/arm64/lib/libavformat.a"; sourceTree = "<group>"; };
+		0B11E2571EC9C5EA002D86BF /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = "../../FFmpeg-iOS-build-script/thin/arm64/lib/libavutil.a"; sourceTree = "<group>"; };
+		0B11E2581EC9C5EA002D86BF /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswresample.a; path = "../../FFmpeg-iOS-build-script/thin/arm64/lib/libswresample.a"; sourceTree = "<group>"; };
+		0B11E2591EC9C5EA002D86BF /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswscale.a; path = "../../FFmpeg-iOS-build-script/thin/arm64/lib/libswscale.a"; sourceTree = "<group>"; };
+		0B11E2611EC9C63E002D86BF /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = LifePlayer/FFmepg/lib/libavcodec.a; sourceTree = "<group>"; };
+		0B11E2621EC9C63E002D86BF /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavdevice.a; path = LifePlayer/FFmepg/lib/libavdevice.a; sourceTree = "<group>"; };
+		0B11E2631EC9C63E002D86BF /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavfilter.a; path = LifePlayer/FFmepg/lib/libavfilter.a; sourceTree = "<group>"; };
+		0B11E2641EC9C63E002D86BF /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavformat.a; path = LifePlayer/FFmepg/lib/libavformat.a; sourceTree = "<group>"; };
+		0B11E2651EC9C63E002D86BF /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = LifePlayer/FFmepg/lib/libavutil.a; sourceTree = "<group>"; };
+		0B11E2661EC9C63E002D86BF /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswresample.a; path = LifePlayer/FFmepg/lib/libswresample.a; sourceTree = "<group>"; };
+		0B11E2671EC9C63E002D86BF /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswscale.a; path = LifePlayer/FFmepg/lib/libswscale.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +54,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B11E2681EC9C63E002D86BF /* libavcodec.a in Frameworks */,
+				0B11E2691EC9C63E002D86BF /* libavdevice.a in Frameworks */,
+				0B11E26A1EC9C63E002D86BF /* libavfilter.a in Frameworks */,
+				0B11E26B1EC9C63E002D86BF /* libavformat.a in Frameworks */,
+				0B11E26C1EC9C63E002D86BF /* libavutil.a in Frameworks */,
+				0B11E26D1EC9C63E002D86BF /* libswresample.a in Frameworks */,
+				0B11E26E1EC9C63E002D86BF /* libswscale.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +72,7 @@
 			children = (
 				0B11E23A1EC9C224002D86BF /* LifePlayer */,
 				0B11E2391EC9C224002D86BF /* Products */,
+				0B11E2521EC9C5EA002D86BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +106,27 @@
 				0B11E23C1EC9C224002D86BF /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0B11E2521EC9C5EA002D86BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0B11E2611EC9C63E002D86BF /* libavcodec.a */,
+				0B11E2621EC9C63E002D86BF /* libavdevice.a */,
+				0B11E2631EC9C63E002D86BF /* libavfilter.a */,
+				0B11E2641EC9C63E002D86BF /* libavformat.a */,
+				0B11E2651EC9C63E002D86BF /* libavutil.a */,
+				0B11E2661EC9C63E002D86BF /* libswresample.a */,
+				0B11E2671EC9C63E002D86BF /* libswscale.a */,
+				0B11E2531EC9C5EA002D86BF /* libavcodec.a */,
+				0B11E2541EC9C5EA002D86BF /* libavdevice.a */,
+				0B11E2551EC9C5EA002D86BF /* libavfilter.a */,
+				0B11E2561EC9C5EA002D86BF /* libavformat.a */,
+				0B11E2571EC9C5EA002D86BF /* libavutil.a */,
+				0B11E2581EC9C5EA002D86BF /* libswresample.a */,
+				0B11E2591EC9C5EA002D86BF /* libswscale.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,8 +324,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/LifePlayer/FFmepg/include";
 				INFOPLIST_FILE = LifePlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LifePlayer/FFmepg/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.niuniu.LifePlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -285,8 +340,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/LifePlayer/FFmepg/include";
 				INFOPLIST_FILE = LifePlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LifePlayer/FFmepg/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.niuniu.LifePlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
