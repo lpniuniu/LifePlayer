@@ -23,6 +23,18 @@
 		0B11E2711EC9C78E002D86BF /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E26F1EC9C764002D86BF /* libiconv.2.dylib */; };
 		0B11E2731EC9C7B6002D86BF /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2721EC9C7B6002D86BF /* libz.1.dylib */; };
 		0B11E2751EC9C7D4002D86BF /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2741EC9C7D4002D86BF /* libbz2.1.0.dylib */; };
+		0B11E2821EC9C894002D86BF /* KxAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B11E2781EC9C894002D86BF /* KxAudioManager.m */; };
+		0B11E2831EC9C894002D86BF /* kxmovie.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0B11E27B1EC9C894002D86BF /* kxmovie.bundle */; };
+		0B11E2841EC9C894002D86BF /* KxMovieDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B11E27D1EC9C894002D86BF /* KxMovieDecoder.m */; };
+		0B11E2851EC9C894002D86BF /* KxMovieGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B11E27F1EC9C894002D86BF /* KxMovieGLView.m */; };
+		0B11E2861EC9C894002D86BF /* KxMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B11E2811EC9C894002D86BF /* KxMovieViewController.m */; };
+		0B11E2881EC9C8B3002D86BF /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2871EC9C8B3002D86BF /* VideoToolbox.framework */; };
+		0B11E28A1EC9C8BA002D86BF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2891EC9C8BA002D86BF /* MediaPlayer.framework */; };
+		0B11E28C1EC9C8C6002D86BF /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E28B1EC9C8C6002D86BF /* CoreAudio.framework */; };
+		0B11E28E1EC9C8CF002D86BF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E28D1EC9C8CF002D86BF /* AudioToolbox.framework */; };
+		0B11E2901EC9C8D5002D86BF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E28F1EC9C8D5002D86BF /* Accelerate.framework */; };
+		0B11E2921EC9C8DC002D86BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2911EC9C8DC002D86BF /* QuartzCore.framework */; };
+		0B11E2941EC9C8EC002D86BF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2931EC9C8EC002D86BF /* OpenGLES.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +65,24 @@
 		0B11E26F1EC9C764002D86BF /* libiconv.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.dylib; path = ../../../../../usr/lib/libiconv.2.dylib; sourceTree = "<group>"; };
 		0B11E2721EC9C7B6002D86BF /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		0B11E2741EC9C7D4002D86BF /* libbz2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.1.0.dylib; path = ../../../../../usr/lib/libbz2.1.0.dylib; sourceTree = "<group>"; };
+		0B11E2771EC9C894002D86BF /* KxAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KxAudioManager.h; path = LifePlayer/kxmovie/KxAudioManager.h; sourceTree = "<group>"; };
+		0B11E2781EC9C894002D86BF /* KxAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KxAudioManager.m; path = LifePlayer/kxmovie/KxAudioManager.m; sourceTree = "<group>"; };
+		0B11E2791EC9C894002D86BF /* KxLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KxLogger.h; path = LifePlayer/kxmovie/KxLogger.h; sourceTree = "<group>"; };
+		0B11E27A1EC9C894002D86BF /* kxmovie-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "kxmovie-Prefix.pch"; path = "LifePlayer/kxmovie/kxmovie-Prefix.pch"; sourceTree = "<group>"; };
+		0B11E27B1EC9C894002D86BF /* kxmovie.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = kxmovie.bundle; path = LifePlayer/kxmovie/kxmovie.bundle; sourceTree = "<group>"; };
+		0B11E27C1EC9C894002D86BF /* KxMovieDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KxMovieDecoder.h; path = LifePlayer/kxmovie/KxMovieDecoder.h; sourceTree = "<group>"; };
+		0B11E27D1EC9C894002D86BF /* KxMovieDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KxMovieDecoder.m; path = LifePlayer/kxmovie/KxMovieDecoder.m; sourceTree = "<group>"; };
+		0B11E27E1EC9C894002D86BF /* KxMovieGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KxMovieGLView.h; path = LifePlayer/kxmovie/KxMovieGLView.h; sourceTree = "<group>"; };
+		0B11E27F1EC9C894002D86BF /* KxMovieGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KxMovieGLView.m; path = LifePlayer/kxmovie/KxMovieGLView.m; sourceTree = "<group>"; };
+		0B11E2801EC9C894002D86BF /* KxMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KxMovieViewController.h; path = LifePlayer/kxmovie/KxMovieViewController.h; sourceTree = "<group>"; };
+		0B11E2811EC9C894002D86BF /* KxMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KxMovieViewController.m; path = LifePlayer/kxmovie/KxMovieViewController.m; sourceTree = "<group>"; };
+		0B11E2871EC9C8B3002D86BF /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		0B11E2891EC9C8BA002D86BF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		0B11E28B1EC9C8C6002D86BF /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		0B11E28D1EC9C8CF002D86BF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		0B11E28F1EC9C8D5002D86BF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		0B11E2911EC9C8DC002D86BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0B11E2931EC9C8EC002D86BF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +91,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B11E2731EC9C7B6002D86BF /* libz.1.dylib in Frameworks */,
+				0B11E2941EC9C8EC002D86BF /* OpenGLES.framework in Frameworks */,
+				0B11E2921EC9C8DC002D86BF /* QuartzCore.framework in Frameworks */,
+				0B11E2901EC9C8D5002D86BF /* Accelerate.framework in Frameworks */,
+				0B11E28E1EC9C8CF002D86BF /* AudioToolbox.framework in Frameworks */,
+				0B11E28C1EC9C8C6002D86BF /* CoreAudio.framework in Frameworks */,
+				0B11E28A1EC9C8BA002D86BF /* MediaPlayer.framework in Frameworks */,
+				0B11E2881EC9C8B3002D86BF /* VideoToolbox.framework in Frameworks */,
 				0B11E2711EC9C78E002D86BF /* libiconv.2.dylib in Frameworks */,
 				0B11E2751EC9C7D4002D86BF /* libbz2.1.0.dylib in Frameworks */,
 				0B11E2681EC9C63E002D86BF /* libavcodec.a in Frameworks */,
@@ -79,6 +116,7 @@
 		0B11E22F1EC9C224002D86BF = {
 			isa = PBXGroup;
 			children = (
+				0B11E2761EC9C886002D86BF /* kxmovie */,
 				0B11E23A1EC9C224002D86BF /* LifePlayer */,
 				0B11E2391EC9C224002D86BF /* Products */,
 				0B11E2521EC9C5EA002D86BF /* Frameworks */,
@@ -120,6 +158,13 @@
 		0B11E2521EC9C5EA002D86BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0B11E2931EC9C8EC002D86BF /* OpenGLES.framework */,
+				0B11E2911EC9C8DC002D86BF /* QuartzCore.framework */,
+				0B11E28F1EC9C8D5002D86BF /* Accelerate.framework */,
+				0B11E28D1EC9C8CF002D86BF /* AudioToolbox.framework */,
+				0B11E28B1EC9C8C6002D86BF /* CoreAudio.framework */,
+				0B11E2891EC9C8BA002D86BF /* MediaPlayer.framework */,
+				0B11E2871EC9C8B3002D86BF /* VideoToolbox.framework */,
 				0B11E2741EC9C7D4002D86BF /* libbz2.1.0.dylib */,
 				0B11E2721EC9C7B6002D86BF /* libz.1.dylib */,
 				0B11E26F1EC9C764002D86BF /* libiconv.2.dylib */,
@@ -139,6 +184,24 @@
 				0B11E2591EC9C5EA002D86BF /* libswscale.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0B11E2761EC9C886002D86BF /* kxmovie */ = {
+			isa = PBXGroup;
+			children = (
+				0B11E2771EC9C894002D86BF /* KxAudioManager.h */,
+				0B11E2781EC9C894002D86BF /* KxAudioManager.m */,
+				0B11E2791EC9C894002D86BF /* KxLogger.h */,
+				0B11E27A1EC9C894002D86BF /* kxmovie-Prefix.pch */,
+				0B11E27B1EC9C894002D86BF /* kxmovie.bundle */,
+				0B11E27C1EC9C894002D86BF /* KxMovieDecoder.h */,
+				0B11E27D1EC9C894002D86BF /* KxMovieDecoder.m */,
+				0B11E27E1EC9C894002D86BF /* KxMovieGLView.h */,
+				0B11E27F1EC9C894002D86BF /* KxMovieGLView.m */,
+				0B11E2801EC9C894002D86BF /* KxMovieViewController.h */,
+				0B11E2811EC9C894002D86BF /* KxMovieViewController.m */,
+			);
+			name = kxmovie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +235,7 @@
 				TargetAttributes = {
 					0B11E2371EC9C224002D86BF = {
 						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = 327979M4M2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -200,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B11E24B1EC9C224002D86BF /* LaunchScreen.storyboard in Resources */,
+				0B11E2831EC9C894002D86BF /* kxmovie.bundle in Resources */,
 				0B11E2481EC9C224002D86BF /* Assets.xcassets in Resources */,
 				0B11E2461EC9C224002D86BF /* Main.storyboard in Resources */,
 			);
@@ -212,9 +277,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B11E2841EC9C894002D86BF /* KxMovieDecoder.m in Sources */,
 				0B11E2431EC9C224002D86BF /* ViewController.m in Sources */,
 				0B11E2401EC9C224002D86BF /* AppDelegate.m in Sources */,
+				0B11E2861EC9C894002D86BF /* KxMovieViewController.m in Sources */,
 				0B11E23D1EC9C224002D86BF /* main.m in Sources */,
+				0B11E2821EC9C894002D86BF /* KxAudioManager.m in Sources */,
+				0B11E2851EC9C894002D86BF /* KxMovieGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +405,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 327979M4M2;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/LifePlayer/LifePlayer-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/LifePlayer/FFmepg/include";
 				INFOPLIST_FILE = LifePlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -352,6 +423,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 327979M4M2;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/LifePlayer/LifePlayer-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/LifePlayer/FFmepg/include";
 				INFOPLIST_FILE = LifePlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
