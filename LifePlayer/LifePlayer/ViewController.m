@@ -18,12 +18,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"xlt" ofType:@"mkv"];
     
-    KxMovieViewController *vc = [KxMovieViewController movieViewControllerWithContentPath:path parameters:nil];
-    [self presentViewController:vc animated:YES completion:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
