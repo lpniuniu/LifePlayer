@@ -12,9 +12,12 @@
 #include <ifaddrs.h>
 #include <arpa/inet.h>
 
-@interface ViewController ()
+static NSString* cellIdentifiler = @"cellIdentifiler";
+
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) GCDWebUploader* webServer;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -60,6 +63,8 @@
     [self.webServer start];
     
     self.title = [self getIPAddress];
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifiler];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -73,6 +78,38 @@
     [super didReceiveMemoryWarning];
     
 }
+
+- (NSArray *)getFilenamelist
+{
+    NSMutableArray *filenamelist = [NSMutableArray array];
+    NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSArray *fileList = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsPath error:nil];
+    
+    for (NSString *filename in fileList) {
+        [filenamelist  addObject:filename];
+    }
+    return filenamelist;
+}
+
+# pragma marks data source
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [[self getFilenamelist] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifiler];
+    [[cell textLabel] setText:[[self getFilenamelist] objectAtIndex:indexPath.row]];;
+    return cell;
+}
+
+- (IBAction)reloadList:(id)sender {
+    [self.tableView reloadData];
+}
+
+# pragma marks table delegate
+
 
 
 @end
