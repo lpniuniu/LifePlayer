@@ -109,7 +109,13 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
 }
 
 # pragma marks table delegate
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString* path = [documentsPath stringByAppendingPathComponent:[[self getFilenamelist] objectAtIndex:indexPath.row]];
+    id vc = [KxMovieViewController movieViewControllerWithContentPath:path parameters:nil];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 
 @end
