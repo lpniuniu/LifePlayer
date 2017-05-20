@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B11E23D1EC9C224002D86BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B11E23C1EC9C224002D86BF /* main.m */; };
-		0B11E2401EC9C224002D86BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B11E23F1EC9C224002D86BF /* AppDelegate.m */; };
+		0B11E2401EC9C224002D86BF /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0B11E23F1EC9C224002D86BF /* AppDelegate.mm */; };
 		0B11E2431EC9C224002D86BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B11E2421EC9C224002D86BF /* ViewController.m */; };
 		0B11E2461EC9C224002D86BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B11E2441EC9C224002D86BF /* Main.storyboard */; };
 		0B11E2481EC9C224002D86BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B11E2471EC9C224002D86BF /* Assets.xcassets */; };
@@ -23,11 +23,6 @@
 		0B11E2711EC9C78E002D86BF /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E26F1EC9C764002D86BF /* libiconv.2.dylib */; };
 		0B11E2731EC9C7B6002D86BF /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2721EC9C7B6002D86BF /* libz.1.dylib */; };
 		0B11E2751EC9C7D4002D86BF /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2741EC9C7D4002D86BF /* libbz2.1.0.dylib */; };
-		0B11E2821EC9C894002D86BF /* KxAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B11E2781EC9C894002D86BF /* KxAudioManager.m */; };
-		0B11E2831EC9C894002D86BF /* kxmovie.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0B11E27B1EC9C894002D86BF /* kxmovie.bundle */; };
-		0B11E2841EC9C894002D86BF /* KxMovieDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B11E27D1EC9C894002D86BF /* KxMovieDecoder.m */; };
-		0B11E2851EC9C894002D86BF /* KxMovieGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B11E27F1EC9C894002D86BF /* KxMovieGLView.m */; };
-		0B11E2861EC9C894002D86BF /* KxMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B11E2811EC9C894002D86BF /* KxMovieViewController.m */; };
 		0B11E2881EC9C8B3002D86BF /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2871EC9C8B3002D86BF /* VideoToolbox.framework */; };
 		0B11E28A1EC9C8BA002D86BF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2891EC9C8BA002D86BF /* MediaPlayer.framework */; };
 		0B11E28C1EC9C8C6002D86BF /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E28B1EC9C8C6002D86BF /* CoreAudio.framework */; };
@@ -35,6 +30,8 @@
 		0B11E2901EC9C8D5002D86BF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E28F1EC9C8D5002D86BF /* Accelerate.framework */; };
 		0B11E2921EC9C8DC002D86BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2911EC9C8DC002D86BF /* QuartzCore.framework */; };
 		0B11E2941EC9C8EC002D86BF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2931EC9C8EC002D86BF /* OpenGLES.framework */; };
+		0B22CAD61ED0349100F0D3C3 /* libMobileVLCKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B22CAD51ED0349100F0D3C3 /* libMobileVLCKit.a */; };
+		0BEB13CD1ECEDA03004011D0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BEB13CC1ECEDA03004011D0 /* MobileCoreServices.framework */; };
 		523FB89C7A145533CAE4BD70 /* libPods-LifePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1894266AA2BF2C61F3E860F /* libPods-LifePlayer.a */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +39,7 @@
 		0B11E2381EC9C224002D86BF /* LifePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B11E23C1EC9C224002D86BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0B11E23E1EC9C224002D86BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		0B11E23F1EC9C224002D86BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0B11E23F1EC9C224002D86BF /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		0B11E2411EC9C224002D86BF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0B11E2421EC9C224002D86BF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0B11E2451EC9C224002D86BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,16 +63,6 @@
 		0B11E26F1EC9C764002D86BF /* libiconv.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.dylib; path = ../../../../../usr/lib/libiconv.2.dylib; sourceTree = "<group>"; };
 		0B11E2721EC9C7B6002D86BF /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		0B11E2741EC9C7D4002D86BF /* libbz2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.1.0.dylib; path = ../../../../../usr/lib/libbz2.1.0.dylib; sourceTree = "<group>"; };
-		0B11E2771EC9C894002D86BF /* KxAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KxAudioManager.h; path = LifePlayer/kxmovie/KxAudioManager.h; sourceTree = "<group>"; };
-		0B11E2781EC9C894002D86BF /* KxAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KxAudioManager.m; path = LifePlayer/kxmovie/KxAudioManager.m; sourceTree = "<group>"; };
-		0B11E2791EC9C894002D86BF /* KxLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KxLogger.h; path = LifePlayer/kxmovie/KxLogger.h; sourceTree = "<group>"; };
-		0B11E27B1EC9C894002D86BF /* kxmovie.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = kxmovie.bundle; path = LifePlayer/kxmovie/kxmovie.bundle; sourceTree = "<group>"; };
-		0B11E27C1EC9C894002D86BF /* KxMovieDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KxMovieDecoder.h; path = LifePlayer/kxmovie/KxMovieDecoder.h; sourceTree = "<group>"; };
-		0B11E27D1EC9C894002D86BF /* KxMovieDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KxMovieDecoder.m; path = LifePlayer/kxmovie/KxMovieDecoder.m; sourceTree = "<group>"; };
-		0B11E27E1EC9C894002D86BF /* KxMovieGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KxMovieGLView.h; path = LifePlayer/kxmovie/KxMovieGLView.h; sourceTree = "<group>"; };
-		0B11E27F1EC9C894002D86BF /* KxMovieGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KxMovieGLView.m; path = LifePlayer/kxmovie/KxMovieGLView.m; sourceTree = "<group>"; };
-		0B11E2801EC9C894002D86BF /* KxMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KxMovieViewController.h; path = LifePlayer/kxmovie/KxMovieViewController.h; sourceTree = "<group>"; };
-		0B11E2811EC9C894002D86BF /* KxMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KxMovieViewController.m; path = LifePlayer/kxmovie/KxMovieViewController.m; sourceTree = "<group>"; };
 		0B11E2871EC9C8B3002D86BF /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		0B11E2891EC9C8BA002D86BF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		0B11E28B1EC9C8C6002D86BF /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -83,6 +70,9 @@
 		0B11E28F1EC9C8D5002D86BF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		0B11E2911EC9C8DC002D86BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0B11E2931EC9C8EC002D86BF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		0B22CAD51ED0349100F0D3C3 /* libMobileVLCKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobileVLCKit.a; path = LifePlayer/MobileVLCKit/libMobileVLCKit.a; sourceTree = "<group>"; };
+		0B22CAD71ED0349100F0D3C3 /* libMobileVLCKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobileVLCKit.a; path = LifePlayer/MobileVLCKit/libMobileVLCKit.a; sourceTree = "<group>"; };
+		0BEB13CC1ECEDA03004011D0 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8F23F5E596171C2D3E6BAAA9 /* Pods-LifePlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifePlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifePlayer/Pods-LifePlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		A1E7C4E996F1836D3FFE0251 /* Pods-LifePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifePlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifePlayer/Pods-LifePlayer.release.xcconfig"; sourceTree = "<group>"; };
 		E1894266AA2BF2C61F3E860F /* libPods-LifePlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LifePlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B22CAD61ED0349100F0D3C3 /* libMobileVLCKit.a in Frameworks */,
+				0BEB13CD1ECEDA03004011D0 /* MobileCoreServices.framework in Frameworks */,
 				0B11E2731EC9C7B6002D86BF /* libz.1.dylib in Frameworks */,
 				0B11E2941EC9C8EC002D86BF /* OpenGLES.framework in Frameworks */,
 				0B11E2921EC9C8DC002D86BF /* QuartzCore.framework in Frameworks */,
@@ -120,7 +112,6 @@
 		0B11E22F1EC9C224002D86BF = {
 			isa = PBXGroup;
 			children = (
-				0B11E2761EC9C886002D86BF /* kxmovie */,
 				0B11E23A1EC9C224002D86BF /* LifePlayer */,
 				0B11E2391EC9C224002D86BF /* Products */,
 				0B11E2521EC9C5EA002D86BF /* Frameworks */,
@@ -140,7 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				0B11E23E1EC9C224002D86BF /* AppDelegate.h */,
-				0B11E23F1EC9C224002D86BF /* AppDelegate.m */,
+				0B11E23F1EC9C224002D86BF /* AppDelegate.mm */,
 				0B11E2411EC9C224002D86BF /* ViewController.h */,
 				0B11E2421EC9C224002D86BF /* ViewController.m */,
 				0B11E2441EC9C224002D86BF /* Main.storyboard */,
@@ -163,6 +154,9 @@
 		0B11E2521EC9C5EA002D86BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0B22CAD71ED0349100F0D3C3 /* libMobileVLCKit.a */,
+				0B22CAD51ED0349100F0D3C3 /* libMobileVLCKit.a */,
+				0BEB13CC1ECEDA03004011D0 /* MobileCoreServices.framework */,
 				0B11E2931EC9C8EC002D86BF /* OpenGLES.framework */,
 				0B11E2911EC9C8DC002D86BF /* QuartzCore.framework */,
 				0B11E28F1EC9C8D5002D86BF /* Accelerate.framework */,
@@ -190,23 +184,6 @@
 				E1894266AA2BF2C61F3E860F /* libPods-LifePlayer.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		0B11E2761EC9C886002D86BF /* kxmovie */ = {
-			isa = PBXGroup;
-			children = (
-				0B11E2771EC9C894002D86BF /* KxAudioManager.h */,
-				0B11E2781EC9C894002D86BF /* KxAudioManager.m */,
-				0B11E2791EC9C894002D86BF /* KxLogger.h */,
-				0B11E27B1EC9C894002D86BF /* kxmovie.bundle */,
-				0B11E27C1EC9C894002D86BF /* KxMovieDecoder.h */,
-				0B11E27D1EC9C894002D86BF /* KxMovieDecoder.m */,
-				0B11E27E1EC9C894002D86BF /* KxMovieGLView.h */,
-				0B11E27F1EC9C894002D86BF /* KxMovieGLView.m */,
-				0B11E2801EC9C894002D86BF /* KxMovieViewController.h */,
-				0B11E2811EC9C894002D86BF /* KxMovieViewController.m */,
-			);
-			name = kxmovie;
 			sourceTree = "<group>";
 		};
 		AFCCC151EBE22BA40A025A12 /* Pods */ = {
@@ -281,7 +258,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B11E24B1EC9C224002D86BF /* LaunchScreen.storyboard in Resources */,
-				0B11E2831EC9C894002D86BF /* kxmovie.bundle in Resources */,
 				0B11E2481EC9C224002D86BF /* Assets.xcassets in Resources */,
 				0B11E2461EC9C224002D86BF /* Main.storyboard in Resources */,
 			);
@@ -332,7 +308,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -342,13 +318,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B11E2841EC9C894002D86BF /* KxMovieDecoder.m in Sources */,
 				0B11E2431EC9C224002D86BF /* ViewController.m in Sources */,
-				0B11E2401EC9C224002D86BF /* AppDelegate.m in Sources */,
-				0B11E2861EC9C894002D86BF /* KxMovieViewController.m in Sources */,
+				0B11E2401EC9C224002D86BF /* AppDelegate.mm in Sources */,
 				0B11E23D1EC9C224002D86BF /* main.m in Sources */,
-				0B11E2821EC9C894002D86BF /* KxAudioManager.m in Sources */,
-				0B11E2851EC9C894002D86BF /* KxMovieGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,7 +387,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/LifePlayer/FFmepg/include";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/LifePlayer/FFmepg/include",
+					"$(PROJECT_DIR)/LifePlayer/MobileVLCKit/",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -459,7 +434,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/LifePlayer/FFmepg/include";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/LifePlayer/FFmepg/include",
+					"$(PROJECT_DIR)/LifePlayer/MobileVLCKit/",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -474,12 +452,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 327979M4M2;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/LifePlayer/LifePlayer-Prefix.pch";
 				INFOPLIST_FILE = LifePlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LifePlayer/FFmepg/lib",
+					"$(PROJECT_DIR)/LifePlayer/MobileVLCKit",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.niuniu.LifePlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -492,12 +472,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 327979M4M2;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/LifePlayer/LifePlayer-Prefix.pch";
 				INFOPLIST_FILE = LifePlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LifePlayer/FFmepg/lib",
+					"$(PROJECT_DIR)/LifePlayer/MobileVLCKit",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.niuniu.LifePlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";

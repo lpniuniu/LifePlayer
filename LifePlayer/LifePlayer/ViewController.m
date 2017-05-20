@@ -11,6 +11,7 @@
 #import <GCDWebUploader.h>
 #include <ifaddrs.h>
 #include <arpa/inet.h>
+#import <MobileVLCKit/MobileVLCKit.h>
 
 static NSString* cellIdentifiler = @"cellIdentifiler";
 
@@ -18,6 +19,7 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
 
 @property (nonatomic) GCDWebUploader* webServer;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) VLCMediaPlayer* player;
 
 @end
 
@@ -113,8 +115,16 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
 {
     NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     NSString* path = [documentsPath stringByAppendingPathComponent:[[self getFilenamelist] objectAtIndex:indexPath.row]];
-    id vc = [KxMovieViewController movieViewControllerWithContentPath:path parameters:nil];
+
+    UIViewController* vc = [[UIViewController alloc] init];
+    
+    VLCMediaPlayer *player = [[VLCMediaPlayer alloc] initWithOptions:nil];
+    self.player = player;
+    player.drawable = vc.view;
+    player.media = [VLCMedia mediaWithPath:path];
+    [player play];
     [self presentViewController:vc animated:YES completion:nil];
+    
 }
 
 
