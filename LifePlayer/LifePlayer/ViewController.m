@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "KxMovieViewController.h"
 #import <GCDWebUploader.h>
 #include <ifaddrs.h>
 #include <arpa/inet.h>

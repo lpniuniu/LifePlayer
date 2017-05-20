@@ -13,26 +13,16 @@
 		0B11E2461EC9C224002D86BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B11E2441EC9C224002D86BF /* Main.storyboard */; };
 		0B11E2481EC9C224002D86BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B11E2471EC9C224002D86BF /* Assets.xcassets */; };
 		0B11E24B1EC9C224002D86BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B11E2491EC9C224002D86BF /* LaunchScreen.storyboard */; };
-		0B11E2681EC9C63E002D86BF /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2611EC9C63E002D86BF /* libavcodec.a */; };
-		0B11E2691EC9C63E002D86BF /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2621EC9C63E002D86BF /* libavdevice.a */; };
-		0B11E26A1EC9C63E002D86BF /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2631EC9C63E002D86BF /* libavfilter.a */; };
-		0B11E26B1EC9C63E002D86BF /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2641EC9C63E002D86BF /* libavformat.a */; };
-		0B11E26C1EC9C63E002D86BF /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2651EC9C63E002D86BF /* libavutil.a */; };
-		0B11E26D1EC9C63E002D86BF /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2661EC9C63E002D86BF /* libswresample.a */; };
-		0B11E26E1EC9C63E002D86BF /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2671EC9C63E002D86BF /* libswscale.a */; };
-		0B11E2711EC9C78E002D86BF /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E26F1EC9C764002D86BF /* libiconv.2.dylib */; };
 		0B11E2731EC9C7B6002D86BF /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2721EC9C7B6002D86BF /* libz.1.dylib */; };
-		0B11E2751EC9C7D4002D86BF /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2741EC9C7D4002D86BF /* libbz2.1.0.dylib */; };
-		0B11E2881EC9C8B3002D86BF /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2871EC9C8B3002D86BF /* VideoToolbox.framework */; };
-		0B11E28A1EC9C8BA002D86BF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2891EC9C8BA002D86BF /* MediaPlayer.framework */; };
-		0B11E28C1EC9C8C6002D86BF /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E28B1EC9C8C6002D86BF /* CoreAudio.framework */; };
-		0B11E28E1EC9C8CF002D86BF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E28D1EC9C8CF002D86BF /* AudioToolbox.framework */; };
-		0B11E2901EC9C8D5002D86BF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E28F1EC9C8D5002D86BF /* Accelerate.framework */; };
 		0B11E2921EC9C8DC002D86BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2911EC9C8DC002D86BF /* QuartzCore.framework */; };
-		0B11E2941EC9C8EC002D86BF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2931EC9C8EC002D86BF /* OpenGLES.framework */; };
 		0B22CAD61ED0349100F0D3C3 /* libMobileVLCKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B22CAD51ED0349100F0D3C3 /* libMobileVLCKit.a */; };
-		0BEB13CD1ECEDA03004011D0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BEB13CC1ECEDA03004011D0 /* MobileCoreServices.framework */; };
 		523FB89C7A145533CAE4BD70 /* libPods-LifePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1894266AA2BF2C61F3E860F /* libPods-LifePlayer.a */; };
+		E34DAA4F1ED088AF003F127D /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E26F1EC9C764002D86BF /* libiconv.2.dylib */; };
+		E34DAA501ED088E7003F127D /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2741EC9C7D4002D86BF /* libbz2.1.0.dylib */; };
+		E34DAA521ED08941003F127D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E34DAA511ED08941003F127D /* CoreMedia.framework */; };
+		E34DAA541ED08953003F127D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E34DAA531ED08953003F127D /* AVFoundation.framework */; };
+		E34DAA551ED0898D003F127D /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2871EC9C8B3002D86BF /* VideoToolbox.framework */; };
+		E34DAA561ED089B6003F127D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E28D1EC9C8CF002D86BF /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +66,9 @@
 		8F23F5E596171C2D3E6BAAA9 /* Pods-LifePlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifePlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifePlayer/Pods-LifePlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		A1E7C4E996F1836D3FFE0251 /* Pods-LifePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifePlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifePlayer/Pods-LifePlayer.release.xcconfig"; sourceTree = "<group>"; };
 		E1894266AA2BF2C61F3E860F /* libPods-LifePlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LifePlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E34DAA4D1ED0881E003F127D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		E34DAA511ED08941003F127D /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		E34DAA531ED08953003F127D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,25 +76,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B22CAD61ED0349100F0D3C3 /* libMobileVLCKit.a in Frameworks */,
-				0BEB13CD1ECEDA03004011D0 /* MobileCoreServices.framework in Frameworks */,
+				E34DAA561ED089B6003F127D /* AudioToolbox.framework in Frameworks */,
+				E34DAA551ED0898D003F127D /* VideoToolbox.framework in Frameworks */,
+				E34DAA541ED08953003F127D /* AVFoundation.framework in Frameworks */,
+				E34DAA521ED08941003F127D /* CoreMedia.framework in Frameworks */,
+				E34DAA501ED088E7003F127D /* libbz2.1.0.dylib in Frameworks */,
 				0B11E2731EC9C7B6002D86BF /* libz.1.dylib in Frameworks */,
-				0B11E2941EC9C8EC002D86BF /* OpenGLES.framework in Frameworks */,
+				E34DAA4F1ED088AF003F127D /* libiconv.2.dylib in Frameworks */,
+				0B22CAD61ED0349100F0D3C3 /* libMobileVLCKit.a in Frameworks */,
 				0B11E2921EC9C8DC002D86BF /* QuartzCore.framework in Frameworks */,
-				0B11E2901EC9C8D5002D86BF /* Accelerate.framework in Frameworks */,
-				0B11E28E1EC9C8CF002D86BF /* AudioToolbox.framework in Frameworks */,
-				0B11E28C1EC9C8C6002D86BF /* CoreAudio.framework in Frameworks */,
-				0B11E28A1EC9C8BA002D86BF /* MediaPlayer.framework in Frameworks */,
-				0B11E2881EC9C8B3002D86BF /* VideoToolbox.framework in Frameworks */,
-				0B11E2711EC9C78E002D86BF /* libiconv.2.dylib in Frameworks */,
-				0B11E2751EC9C7D4002D86BF /* libbz2.1.0.dylib in Frameworks */,
-				0B11E2681EC9C63E002D86BF /* libavcodec.a in Frameworks */,
-				0B11E2691EC9C63E002D86BF /* libavdevice.a in Frameworks */,
-				0B11E26A1EC9C63E002D86BF /* libavfilter.a in Frameworks */,
-				0B11E26B1EC9C63E002D86BF /* libavformat.a in Frameworks */,
-				0B11E26C1EC9C63E002D86BF /* libavutil.a in Frameworks */,
-				0B11E26D1EC9C63E002D86BF /* libswresample.a in Frameworks */,
-				0B11E26E1EC9C63E002D86BF /* libswscale.a in Frameworks */,
 				523FB89C7A145533CAE4BD70 /* libPods-LifePlayer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,6 +137,9 @@
 		0B11E2521EC9C5EA002D86BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E34DAA531ED08953003F127D /* AVFoundation.framework */,
+				E34DAA511ED08941003F127D /* CoreMedia.framework */,
+				E34DAA4D1ED0881E003F127D /* CoreVideo.framework */,
 				0B22CAD71ED0349100F0D3C3 /* libMobileVLCKit.a */,
 				0B22CAD51ED0349100F0D3C3 /* libMobileVLCKit.a */,
 				0BEB13CC1ECEDA03004011D0 /* MobileCoreServices.framework */,
@@ -458,7 +444,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/LifePlayer/FFmepg/lib",
 					"$(PROJECT_DIR)/LifePlayer/MobileVLCKit",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.niuniu.LifePlayer;
