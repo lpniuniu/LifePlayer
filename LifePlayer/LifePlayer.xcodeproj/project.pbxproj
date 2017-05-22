@@ -24,6 +24,7 @@
 		E34DAA551ED0898D003F127D /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2871EC9C8B3002D86BF /* VideoToolbox.framework */; };
 		E34DAA561ED089B6003F127D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E28D1EC9C8CF002D86BF /* AudioToolbox.framework */; };
 		E396780A1ED33589001D8565 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39678091ED33589001D8565 /* PlayerViewController.m */; };
+		E396780D1ED339A7001D8565 /* PlayerBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E396780C1ED339A7001D8565 /* PlayerBarView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,8 @@
 		E34DAA531ED08953003F127D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E39678081ED33589001D8565 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		E39678091ED33589001D8565 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		E396780B1ED339A7001D8565 /* PlayerBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerBarView.h; sourceTree = "<group>"; };
+		E396780C1ED339A7001D8565 /* PlayerBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerBarView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,8 @@
 				0B11E23B1EC9C224002D86BF /* Supporting Files */,
 				E39678081ED33589001D8565 /* PlayerViewController.h */,
 				E39678091ED33589001D8565 /* PlayerViewController.m */,
+				E396780B1ED339A7001D8565 /* PlayerBarView.h */,
+				E396780C1ED339A7001D8565 /* PlayerBarView.m */,
 			);
 			path = LifePlayer;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B11E2431EC9C224002D86BF /* ViewController.m in Sources */,
+				E396780D1ED339A7001D8565 /* PlayerBarView.m in Sources */,
 				E396780A1ED33589001D8565 /* PlayerViewController.m in Sources */,
 				0B11E2401EC9C224002D86BF /* AppDelegate.mm in Sources */,
 				0B11E23D1EC9C224002D86BF /* main.m in Sources */,

@@ -8,4 +8,5 @@ target 'LifePlayer' do
   # Pods for LifePlayer
   pod "GCDWebServer/WebUploader", "~> 3.0"
   pod 'Masonry'
+  pod 'Bulb', :git => 'https://github.com/lpniuniu/bulb.git', :branch => 'master', :inhibit_warnings => false
 end
