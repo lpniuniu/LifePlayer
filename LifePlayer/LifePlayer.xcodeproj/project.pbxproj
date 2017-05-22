@@ -23,6 +23,7 @@
 		E34DAA541ED08953003F127D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E34DAA531ED08953003F127D /* AVFoundation.framework */; };
 		E34DAA551ED0898D003F127D /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2871EC9C8B3002D86BF /* VideoToolbox.framework */; };
 		E34DAA561ED089B6003F127D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E28D1EC9C8CF002D86BF /* AudioToolbox.framework */; };
+		E396780A1ED33589001D8565 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39678091ED33589001D8565 /* PlayerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,8 @@
 		E34DAA4D1ED0881E003F127D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		E34DAA511ED08941003F127D /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		E34DAA531ED08953003F127D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E39678081ED33589001D8565 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		E39678091ED33589001D8565 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				0B11E2491EC9C224002D86BF /* LaunchScreen.storyboard */,
 				0B11E24C1EC9C224002D86BF /* Info.plist */,
 				0B11E23B1EC9C224002D86BF /* Supporting Files */,
+				E39678081ED33589001D8565 /* PlayerViewController.h */,
+				E39678091ED33589001D8565 /* PlayerViewController.m */,
 			);
 			path = LifePlayer;
 			sourceTree = "<group>";
@@ -294,7 +299,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -305,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B11E2431EC9C224002D86BF /* ViewController.m in Sources */,
+				E396780A1ED33589001D8565 /* PlayerViewController.m in Sources */,
 				0B11E2401EC9C224002D86BF /* AppDelegate.mm in Sources */,
 				0B11E23D1EC9C224002D86BF /* main.m in Sources */,
 			);

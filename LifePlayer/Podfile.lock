@@ -19,14 +19,17 @@ PODS:
     - GCDWebServer/WebUploader/Core
   - GCDWebServer/WebUploader/Core (3.3.3):
     - GCDWebServer/Core
+  - Masonry (1.0.2)
 
 DEPENDENCIES:
   - GCDWebServer/WebUploader (~> 3.0)
+  - Masonry
 
 SPEC CHECKSUMS:
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
   GCDWebServer: 1c39a1f0763e4eb492bee021e4270fce097d3555
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
 
-PODFILE CHECKSUM: 407c2edc800d24287d69428723120a557dac0020
+PODFILE CHECKSUM: f184dcfd8aaa348ff5181ee0413d9f9ef8ddb079
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.1.1

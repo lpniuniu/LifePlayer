@@ -7,4 +7,5 @@ target 'LifePlayer' do
 
   # Pods for LifePlayer
   pod "GCDWebServer/WebUploader", "~> 3.0"
+  pod 'Masonry'
 end
