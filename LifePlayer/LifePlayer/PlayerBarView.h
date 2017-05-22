@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Bulb.h>
+
+@interface BulbChangeTimeSignal : BulbBoolSignal
+
+@end
 
 @interface PlayerBarView : UIView
+
+- (void)setTotalSecondes:(NSInteger)secondes;
 
 @end

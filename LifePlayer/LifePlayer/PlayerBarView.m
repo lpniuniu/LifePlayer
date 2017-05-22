@@ -7,15 +7,42 @@
 //
 
 #import "PlayerBarView.h"
+#import <Masonry.h>
+
+@implementation BulbChangeTimeSignal
+
+@end
+
+@interface PlayerBarView ()
+
+@property (nonatomic) UISlider* slider;
+
+@end
 
 @implementation PlayerBarView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.slider = [[UISlider alloc] init];
+        [self addSubview:self.slider];
+        [self.slider mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self);
+        }];
+        [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    }
+    return self;
 }
-*/
+
+-(void)setTotalSecondes:(NSInteger)secondes
+{
+    self.slider.maximumValue = secondes;
+}
+
+- (void)sliderValueChanged:(id)sender {
+    UISlider *slider = (UISlider *)sender;
+    [[Bulb bulbGlobal] fire:[BulbChangeTimeSignal signalDefault] data:@(slider.value)];
+}
 
 @end
