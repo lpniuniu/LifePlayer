@@ -12,7 +12,7 @@
 #import <MobileVLCKit/MobileVLCKit.h>
 #import <Bulb.h>
 
-@interface PlayerViewController ()
+@interface PlayerViewController () <VLCMediaPlayerDelegate>
 
 @property (nonatomic, copy) NSString* path;
 @property (nonatomic) VLCMediaPlayer* player;
@@ -36,7 +36,7 @@
     self.player = player;
     player.drawable = self.view;
     player.media = [VLCMedia mediaWithPath:self.path];
-    
+    player.delegate = self;
     self.playerBarView = [[PlayerBarView alloc] init];
     self.playerBarView.alpha = 0;
     
@@ -70,19 +70,24 @@
     [UIView animateWithDuration:0.5 animations:^{
         self.playerBarView.alpha = 1;
     }];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.playerBarView setTotalSecondes:-self.player.remainingTime.value.integerValue];
-    });
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (BOOL)prefersStatusBarHidden{
     return YES;
+}
+
+#pragma marks VLC delegate
+- (void)mediaPlayerTimeChanged:(NSNotification *)aNotification
+{
+    if (self.playerBarView.totalSecondes <= 1) {
+        [self.playerBarView setTotalSecondes:-self.player.remainingTime.value.integerValue];
+    } else {
+        [self.playerBarView setSecondes:self.player.time.value.integerValue];
+    }
 }
 
 @end

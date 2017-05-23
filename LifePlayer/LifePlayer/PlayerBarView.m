@@ -40,6 +40,16 @@
     self.slider.maximumValue = secondes;
 }
 
+- (void)setSecondes:(NSInteger)secondes
+{
+    self.slider.value = secondes;
+}
+
+- (NSInteger)totalSecondes
+{
+    return self.slider.maximumValue;
+}
+
 - (void)sliderValueChanged:(id)sender {
     UISlider *slider = (UISlider *)sender;
     [[Bulb bulbGlobal] fire:[BulbChangeTimeSignal signalDefault] data:@(slider.value)];

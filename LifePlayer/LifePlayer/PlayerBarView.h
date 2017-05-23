@@ -16,5 +16,7 @@
 @interface PlayerBarView : UIView
 
 - (void)setTotalSecondes:(NSInteger)secondes;
+- (void)setSecondes:(NSInteger)secondes;
+- (NSInteger)totalSecondes;
 
 @end
