@@ -7,6 +7,7 @@
 //
 
 #import "PlayerBarView.h"
+#import "PlayerSlider.h"
 #import <Masonry.h>
 
 @implementation BulbChangeTimeSignal
@@ -15,7 +16,7 @@
 
 @interface PlayerBarView ()
 
-@property (nonatomic) UISlider* slider;
+@property (nonatomic) PlayerSlider* slider;
 
 @end
 
@@ -25,11 +26,14 @@
 {
     self = [super init];
     if (self) {
-        self.slider = [[UISlider alloc] init];
+        self.slider = [[PlayerSlider alloc] init];
         [self addSubview:self.slider];
         [self.slider mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self);
+            make.top.bottom.equalTo(self);
+            make.left.equalTo(self).offset(10);
+            make.right.equalTo(self).offset(-10);
         }];
+        self.slider.minimumTrackTintColor = [UIColor whiteColor];
         [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
     }
     return self;
