@@ -152,10 +152,10 @@
 #pragma marks VLC delegate
 - (void)mediaPlayerTimeChanged:(NSNotification *)aNotification
 {
-    if (self.playerBarView.totalSecondes <= 1) {
-        [self.playerBarView setTotalSecondes:-self.player.remainingTime.value.integerValue];
+    if (self.playerBarView.totalMillisecondes <= 1) {
+        [self.playerBarView setTotalMillisecondes:-self.player.remainingTime.value.integerValue];
     } else {
-        [self.playerBarView setSecondes:self.player.time.value.integerValue];
+        [self.playerBarView setMillisecondes:self.player.time.value.integerValue];
     }
 }
 
