@@ -14,11 +14,18 @@
 
 @end
 
+@implementation BulbPlayOrPauseSignal
+
+
+@end
+
 @interface PlayerBarView ()
 
 @property (nonatomic) PlayerSlider* slider;
 @property (nonatomic) UILabel* startTimeLabel;
 @property (nonatomic) UILabel* endTimeLabel;
+@property (nonatomic) UIButton* playBtn;
+@property (nonatomic) BOOL isPlay;
 
 @end
 
@@ -28,13 +35,25 @@
 {
     self = [super init];
     if (self) {
+        self.isPlay = YES;
+        
+        self.playBtn = [[UIButton alloc] init];
+        [self.playBtn setImage:[UIImage imageNamed:@"playBtn"] forState:UIControlStateNormal];
+        [self addSubview:self.playBtn];
+        [self.playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.bottom.equalTo(self);
+            make.left.equalTo(self).offset(5);
+            make.width.equalTo(@35);
+        }];
+        [self.playBtn addTarget:self action:@selector(playOrPause:) forControlEvents:UIControlEventTouchUpInside];
+        
         self.startTimeLabel = [[UILabel alloc] init];
         [self.startTimeLabel setTextColor:[UIColor whiteColor]];
         [self.startTimeLabel setFont:[UIFont systemFontOfSize:11]];
         [self addSubview:self.startTimeLabel];
         [self.startTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(self);
-            make.left.equalTo(self);
+            make.left.equalTo(self.playBtn.mas_right).offset(5);
             make.width.equalTo(@50);
         }];
         
@@ -52,14 +71,28 @@
         [self addSubview:self.slider];
         [self.slider mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(self);
-            make.left.equalTo(self.startTimeLabel.mas_right);
-            make.right.equalTo(self.endTimeLabel.mas_left);
+            make.left.equalTo(self.startTimeLabel.mas_right).offset(5);
+            make.right.equalTo(self.endTimeLabel.mas_left).offset(-5);
         }];
         
         self.slider.minimumTrackTintColor = [UIColor whiteColor];
         [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
     }
     return self;
+}
+
+- (void)playOrPause:(id)sender
+{
+    if (self.isPlay) {
+        [self.playBtn setImage:[UIImage imageNamed:@"pauseBtn"] forState:UIControlStateNormal];
+        [self.playBtn setImageEdgeInsets:UIEdgeInsetsMake(3, 3, 5, 5)];
+        self.isPlay = NO;
+    } else {
+        [self.playBtn setImage:[UIImage imageNamed:@"playBtn"] forState:UIControlStateNormal];
+        [self.playBtn setImageEdgeInsets:UIEdgeInsetsZero];
+        self.isPlay = YES;
+    }
+    [[Bulb bulbGlobal] fire:[BulbPlayOrPauseSignal signalDefault] data:@(self.isPlay)];
 }
 
 -(void)setTotalMillisecondes:(NSInteger)milliseconds

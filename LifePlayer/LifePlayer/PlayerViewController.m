@@ -93,6 +93,28 @@
             return NO;
         }
     }];
+    
+    [[Bulb bulbGlobal] registerSignal:[BulbPlayOrPauseSignal signalDefault] block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
+        if (weakSelf) {
+            NSNumber* isPlay = firstData;
+            if ([isPlay boolValue]) {
+                [weakSelf.player play];
+            } else {
+                [weakSelf.player pause];
+            }
+            
+            [weakSelf.timer invalidate];
+            weakSelf.timer = nil;
+            
+            weakSelf.timer = [NSTimer scheduledTimerWithTimeInterval:5 repeats:NO block:^(NSTimer * _Nonnull timer) {
+                [weakSelf hideToolBar];
+            }];
+            
+            return YES;
+        } else {
+            return NO;
+        }
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
