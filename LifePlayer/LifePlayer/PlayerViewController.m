@@ -19,6 +19,8 @@
 @property (nonatomic) VLCMediaPlayer* player;
 @property (nonatomic) PlayerBarView* playerBarView;
 @property (nonatomic) TopBarView* topBarView;
+@property (nonatomic) BOOL toolBarIsVisible;
+@property (nonatomic) NSTimer* timer;
 
 @end
 
@@ -42,7 +44,7 @@
     self.playerBarView = [[PlayerBarView alloc] init];
     self.playerBarView.alpha = 0;
     
-    UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showplayerBarView:)];
+    UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showToolBarShortTime)];
     [player.drawable addGestureRecognizer:tapGesture];
     
     [self.view addSubview:self.playerBarView];
@@ -68,6 +70,14 @@
     [[Bulb bulbGlobal] registerSignal:[BulbChangeTimeSignal signalDefault].on block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
         if (weakSelf) {
             weakSelf.player.time = [VLCTime timeWithInt:[firstData intValue]];
+            
+            [weakSelf.timer invalidate];
+            weakSelf.timer = nil;
+            
+            weakSelf.timer = [NSTimer scheduledTimerWithTimeInterval:5 repeats:NO block:^(NSTimer * _Nonnull timer) {
+                [weakSelf hideToolBar];
+            }];
+            
             return YES;
         } else {
             return NO;
@@ -85,47 +95,50 @@
     }];
 }
 
-- (void)showplayerBarView:(UITapGestureRecognizer *)gesture
-{
-    [self.view bringSubviewToFront:self.playerBarView];
-    [self.view bringSubviewToFront:self.topBarView];
-    [UIView animateWithDuration:0.5 animations:^{
-        self.playerBarView.alpha = 1;
-        self.topBarView.alpha = 1;
-    }];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:0.5 animations:^{
-            self.playerBarView.alpha = 0;
-            self.topBarView.alpha = 0;
-        }];
-    });
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
     [self.player play];
+}
+
+- (void)showToolBarShortTime
+{
+    if (self.toolBarIsVisible) {
+        [self hideToolBar];
+        return ;
+    }
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:0.5 animations:^{
-            self.playerBarView.alpha = 0;
-            self.topBarView.alpha = 0;
-        }];
-    });
+    [self.view bringSubviewToFront:self.playerBarView];
+    [self.view bringSubviewToFront:self.topBarView];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.playerBarView.alpha = 1;
+        self.topBarView.alpha = 1;
+        self.toolBarIsVisible = YES;
+    }];
+    
+    [self.timer invalidate];
+    self.timer = nil;
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5 repeats:NO block:^(NSTimer * _Nonnull timer) {
+        [self hideToolBar];
+    }];
+}
+
+- (void)hideToolBar
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        self.playerBarView.alpha = 0;
+        self.topBarView.alpha = 0;
+        self.toolBarIsVisible = NO;
+    }];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    [self.view bringSubviewToFront:self.playerBarView];
-    [self.view bringSubviewToFront:self.topBarView];
-    [UIView animateWithDuration:0.5 animations:^{
-        self.playerBarView.alpha = 1;
-        self.topBarView.alpha = 1;
-    }];
+    [self showToolBarShortTime];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -30,8 +30,8 @@
         [self addSubview:self.slider];
         [self.slider mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(self);
-            make.left.equalTo(self).offset(10);
-            make.right.equalTo(self).offset(-10);
+            make.left.equalTo(self).offset(20);
+            make.right.equalTo(self).offset(-20);
         }];
         self.slider.minimumTrackTintColor = [UIColor whiteColor];
         [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
