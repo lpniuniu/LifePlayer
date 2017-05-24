@@ -38,7 +38,8 @@
         self.isPlay = YES;
         
         self.playBtn = [[UIButton alloc] init];
-        [self.playBtn setImage:[UIImage imageNamed:@"playBtn"] forState:UIControlStateNormal];
+        [self.playBtn setImage:[UIImage imageNamed:@"pauseBtn"] forState:UIControlStateNormal];
+        [self.playBtn setImageEdgeInsets:UIEdgeInsetsMake(3, 3, 5, 5)];
         [self addSubview:self.playBtn];
         [self.playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(self);
@@ -84,12 +85,12 @@
 - (void)playOrPause:(id)sender
 {
     if (self.isPlay) {
-        [self.playBtn setImage:[UIImage imageNamed:@"pauseBtn"] forState:UIControlStateNormal];
-        [self.playBtn setImageEdgeInsets:UIEdgeInsetsMake(3, 3, 5, 5)];
-        self.isPlay = NO;
-    } else {
         [self.playBtn setImage:[UIImage imageNamed:@"playBtn"] forState:UIControlStateNormal];
         [self.playBtn setImageEdgeInsets:UIEdgeInsetsZero];
+        self.isPlay = NO;
+    } else {
+        [self.playBtn setImage:[UIImage imageNamed:@"pauseBtn"] forState:UIControlStateNormal];
+        [self.playBtn setImageEdgeInsets:UIEdgeInsetsMake(3, 3, 5, 5)];
         self.isPlay = YES;
     }
     [[Bulb bulbGlobal] fire:[BulbPlayOrPauseSignal signalDefault] data:@(self.isPlay)];
