@@ -11,8 +11,15 @@
 
 
 #import <GCDWebUploader.h>
+#import <Bulb.h>
 #include <ifaddrs.h>
 #include <arpa/inet.h>
+
+
+@implementation BulbFileNameSignal
+
+
+@end
 
 static NSString* cellIdentifiler = @"cellIdentifiler";
 
@@ -117,6 +124,7 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
     NSString* path = [documentsPath stringByAppendingPathComponent:[[self getFilenamelist] objectAtIndex:indexPath.row]];
 
     PlayerViewController* vc = [[PlayerViewController alloc] initWithPath:path];
+    [[Bulb bulbGlobal] hungUp:[BulbFileNameSignal signalDefault] data:[path lastPathComponent]];
     [self presentViewController:vc animated:YES completion:nil];
 }
 

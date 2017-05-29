@@ -7,6 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Bulb.h>
+
+@interface BulbFileNameSignal : BulbBoolSignal
+
+@end
 
 @interface ViewController : UIViewController
 
