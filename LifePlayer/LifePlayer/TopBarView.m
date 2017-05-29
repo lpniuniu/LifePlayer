@@ -31,7 +31,7 @@
         [self.returnBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self);
             make.centerY.equalTo(self);
-            make.height.equalTo(@35);
+            make.height.equalTo(@40);
             make.width.equalTo(@40);
         }];
         [self.returnBtn addTarget:self action:@selector(dissmiss:) forControlEvents:UIControlEventTouchUpInside];

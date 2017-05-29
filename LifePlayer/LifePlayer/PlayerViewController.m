@@ -51,7 +51,7 @@
     [self.view addSubview:self.playerBarView];
     [self.playerBarView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
-        make.height.equalTo(@35);
+        make.height.equalTo(@40);
         make.bottom.equalTo(self.view);
         make.centerX.equalTo(self.view);
     }];
@@ -62,7 +62,7 @@
     [self.view addSubview:self.topBarView];
     [self.topBarView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
-        make.height.equalTo(@35);
+        make.height.equalTo(@40);
         make.top.equalTo(self.view);
         make.centerX.equalTo(self.view);
     }];

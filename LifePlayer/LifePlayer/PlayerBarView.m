@@ -45,11 +45,12 @@
         [self.playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(self);
             make.left.equalTo(self).offset(5);
-            make.width.equalTo(@35);
+            make.width.equalTo(@40);
         }];
         [self.playBtn addTarget:self action:@selector(playOrPause:) forControlEvents:UIControlEventTouchUpInside];
         
         self.startTimeLabel = [[UILabel alloc] init];
+        self.startTimeLabel.textAlignment = NSTextAlignmentCenter;
         [self.startTimeLabel setTextColor:[UIColor whiteColor]];
         [self.startTimeLabel setFont:[UIFont systemFontOfSize:11]];
         [self addSubview:self.startTimeLabel];
@@ -60,6 +61,7 @@
         }];
         
         self.endTimeLabel = [[UILabel alloc] init];
+        self.endTimeLabel.textAlignment = NSTextAlignmentCenter;
         [self.endTimeLabel setTextColor:[UIColor whiteColor]];
         [self.endTimeLabel setFont:[UIFont systemFontOfSize:11]];
         [self addSubview:self.endTimeLabel];
