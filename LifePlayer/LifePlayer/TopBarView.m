@@ -18,10 +18,30 @@
 
 @property (nonatomic) UIButton* returnBtn;
 @property (nonatomic) UILabel* fileNameLabel;
+@property (nonatomic) UILabel* deviceLabel;
 
 @end
 
 @implementation TopBarView
+
+- (NSString*)getCurrentTimes{
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:mm"];
+    NSDate *datenow = [NSDate date];
+    NSString *currentTimeString = [formatter stringFromDate:datenow];
+    return currentTimeString;
+}
+
+- (NSString *)deviceInfoString
+{
+    [UIDevice currentDevice].batteryMonitoringEnabled = YES;
+    double deviceLevel = [UIDevice currentDevice].batteryLevel;
+    NSString* battery = [NSString stringWithFormat:@"%ld%%", (NSInteger)(deviceLevel * 100)];
+    NSString* time = [self getCurrentTimes];
+    NSString* deviceInfo = [NSString stringWithFormat:@"当前时间%@ 电量%@", time, battery];
+    return deviceInfo;
+}
 
 - (instancetype)init
 {
@@ -53,8 +73,29 @@
         UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dissmiss:)];
         self.fileNameLabel.userInteractionEnabled = YES;
         [self.fileNameLabel addGestureRecognizer:tap];
+        
+        self.deviceLabel = [[UILabel alloc] init];
+        [self.deviceLabel setTextColor:[UIColor whiteColor]];
+        [self.deviceLabel setText:[self deviceInfoString]];
+        self.deviceLabel.textAlignment = NSTextAlignmentRight;
+        [self addSubview:self.deviceLabel];
+        [self.deviceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self).offset(-15);
+            make.centerY.equalTo(self);
+            make.height.equalTo(@40);
+            make.width.equalTo(@249);
+        }];
+        
+        [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refresh:) userInfo:nil repeats:YES];
     }
     return self;
+}
+
+- (void)refresh:(id)timer
+{
+    if (self.alpha > 0) {
+        [self.deviceLabel setText:[self deviceInfoString]];
+    }
 }
 
 - (void)dissmiss:(id)sender
