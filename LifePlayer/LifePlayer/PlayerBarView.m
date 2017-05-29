@@ -8,6 +8,7 @@
 
 #import "PlayerBarView.h"
 #import "PlayerSlider.h"
+#import "AppDelegate.h"
 #import <Masonry.h>
 
 @implementation BulbChangeTimeSignal
@@ -78,6 +79,60 @@
         
         self.slider.minimumTrackTintColor = [UIColor whiteColor];
         [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+        
+        __weak typeof(self) weakSelf = self;
+        
+        [[Bulb bulbGlobal] registerSignal:[BulbWillEnterForeground signalDefault] block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
+            
+            if (weakSelf) {
+                if (!weakSelf.isPlay) {
+                    [weakSelf playOrPause:nil];
+                }
+            } else {
+                return NO;
+            }
+            
+            return YES;
+        }];
+        
+        [[Bulb bulbGlobal] registerSignal:[BulbDidBecomeActive signalDefault] block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
+            
+            if (weakSelf) {
+                if (!weakSelf.isPlay) {
+                    [weakSelf playOrPause:nil];
+                }
+            } else {
+                return NO;
+            }
+            
+            return YES;
+        }];
+        
+        [[Bulb bulbGlobal] registerSignal:[BulbDidEnterBackground signalDefault] block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
+            
+            if (weakSelf) {
+                if (weakSelf.isPlay) {
+                    [weakSelf playOrPause:nil];
+                }
+            } else {
+                return NO;
+            }
+            
+            return YES;
+        }];
+        
+        [[Bulb bulbGlobal] registerSignal:[BulbWillResignActiveSignal signalDefault] block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
+            
+            if (weakSelf) {
+                if (weakSelf.isPlay) {
+                    [weakSelf playOrPause:nil];
+                }
+            } else {
+                return NO;
+            }
+            
+            return YES;
+        }];
     }
     return self;
 }

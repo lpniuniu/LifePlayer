@@ -7,6 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Bulb.h>
+
+@interface BulbWillResignActiveSignal : BulbBoolSignal
+
+@end
+
+@interface BulbDidBecomeActive : BulbBoolSignal
+
+@end
+
+@interface BulbWillEnterForeground : BulbBoolSignal
+
+@end
+
+@interface BulbDidEnterBackground : BulbBoolSignal
+
+@end
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

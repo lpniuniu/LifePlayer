@@ -9,6 +9,7 @@
 #import "PlayerViewController.h"
 #import "PlayerBarView.h"
 #import "TopBarView.h"
+#import "AppDelegate.h"
 #import <Masonry.h>
 #import <MobileVLCKit/MobileVLCKit.h>
 #import <Bulb.h>
@@ -98,9 +99,9 @@
         if (weakSelf) {
             NSNumber* isPlay = firstData;
             if ([isPlay boolValue]) {
-                [weakSelf.player play];
+                [weakSelf play];
             } else {
-                [weakSelf.player pause];
+                [weakSelf pause];
             }
             
             [weakSelf.timer invalidate];
@@ -117,11 +118,27 @@
     }];
 }
 
+- (void)play
+{
+    if ([self.player isPlaying]) {
+        return ;
+    }
+    [self.player play];
+}
+
+- (void)pause
+{
+    if (![self.player isPlaying]) {
+        return ;
+    }
+    [self.player pause];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    [self.player play];
+    [self play];
 }
 
 - (void)showToolBarShortTime
@@ -172,6 +189,11 @@
 }
 
 #pragma marks VLC delegate
+- (void)mediaPlayerStateChanged:(NSNotification *)aNotification
+{
+    
+}
+
 - (void)mediaPlayerTimeChanged:(NSNotification *)aNotification
 {
     if (self.playerBarView.totalMillisecondes <= 1) {
