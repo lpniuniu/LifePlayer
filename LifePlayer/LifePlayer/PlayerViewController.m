@@ -116,6 +116,19 @@
             return NO;
         }
     }];
+    
+    // 快进与快退
+    UISwipeGestureRecognizer* swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(fast:)];
+    [self.player.drawable addGestureRecognizer:swipe];
+}
+
+- (void)fast:(UISwipeGestureRecognizer *)swipe
+{
+    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
+        [self.player shortJumpBackward];
+    } else {
+        [self.player shortJumpForward];
+    }
 }
 
 - (void)play
