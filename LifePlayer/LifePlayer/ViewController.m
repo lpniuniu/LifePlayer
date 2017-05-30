@@ -128,4 +128,9 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 @end

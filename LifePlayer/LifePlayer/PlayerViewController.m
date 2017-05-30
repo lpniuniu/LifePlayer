@@ -122,8 +122,13 @@
     }];
     
     // 快进与快退
-    UISwipeGestureRecognizer* swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(fast:)];
-    [self.player.drawable addGestureRecognizer:swipe];
+    UISwipeGestureRecognizer* rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(fast:)];
+    [rightSwipe setDirection:UISwipeGestureRecognizerDirectionRight];
+    
+    UISwipeGestureRecognizer* leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(fast:)];
+    [leftSwipe setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.player.drawable addGestureRecognizer:rightSwipe];
+    [self.player.drawable addGestureRecognizer:leftSwipe];
 }
 
 - (void)fast:(UISwipeGestureRecognizer *)swipe
