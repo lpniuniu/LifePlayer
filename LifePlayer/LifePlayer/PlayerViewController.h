@@ -7,6 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Bulb.h>
+
+@interface BulbVideoOverSignal : BulbBoolSignal
+
+@end
 
 @interface PlayerViewController : UIViewController
 

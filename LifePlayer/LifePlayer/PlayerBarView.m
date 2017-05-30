@@ -9,6 +9,7 @@
 #import "PlayerBarView.h"
 #import "PlayerSlider.h"
 #import "AppDelegate.h"
+#import "PlayerViewController.h"
 #import <Masonry.h>
 
 @implementation BulbChangeTimeSignal
@@ -67,7 +68,7 @@
         [self addSubview:self.endTimeLabel];
         [self.endTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(self);
-            make.right.equalTo(self);
+            make.right.equalTo(self).offset(-5);
             make.width.equalTo(@50);
         }];
         
@@ -135,6 +136,18 @@
             
             return YES;
         }];
+        
+        [[Bulb bulbGlobal] registerSignal:[BulbVideoOverSignal signalDefault] block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
+            if (weakSelf) {
+                if (weakSelf.isPlay) {
+                    [weakSelf playOrPause:nil];
+                }
+            } else {
+                return NO;
+            }
+            
+            return YES;
+        }];
     }
     return self;
 }
@@ -160,26 +173,13 @@
 }
 
 -(NSString *)getMMSSFromSS:(NSInteger)seconds{
-    NSString *format_time = @"";
-    NSInteger millisecondes = [self totalMillisecondes];
-    if (millisecondes/1000/3600 > 0) {
-        //format of hour
-        NSString *str_hour = [NSString stringWithFormat:@"%02ld",seconds/3600];
-        //format of minute
-        NSString *str_minute = [NSString stringWithFormat:@"%02ld",(seconds%3600)/60];
-        //format of second
-        NSString *str_second = [NSString stringWithFormat:@"%02ld",seconds%60];
-        //format of time
-        format_time = [NSString stringWithFormat:@"%@:%@:%@",str_hour,str_minute,str_second];
-    } else {
-        //format of minute
-        NSString *str_minute = [NSString stringWithFormat:@"%02ld",(seconds%3600)/60];
-        //format of second
-        NSString *str_second = [NSString stringWithFormat:@"%02ld",seconds%60];
-        //format of time
-        format_time = [NSString stringWithFormat:@"%@:%@",str_minute,str_second];
-    }
-    return format_time;
+    //format of hour
+    NSString *str_hour = [NSString stringWithFormat:@"%02ld",seconds/3600];
+    //format of minute
+    NSString *str_minute = [NSString stringWithFormat:@"%02ld",(seconds%3600)/60];
+    //format of second
+    NSString *str_second = [NSString stringWithFormat:@"%02ld",seconds%60];
+    return [NSString stringWithFormat:@"%@:%@:%@",str_hour,str_minute,str_second];
 }
 
 - (void)setMillisecondes:(NSInteger)milliseconds

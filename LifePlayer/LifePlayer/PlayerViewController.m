@@ -14,6 +14,10 @@
 #import <MobileVLCKit/MobileVLCKit.h>
 #import <Bulb.h>
 
+@implementation BulbVideoOverSignal
+
+@end
+
 @interface PlayerViewController () <VLCMediaPlayerDelegate>
 
 @property (nonatomic, copy) NSString* path;
@@ -204,13 +208,15 @@
 #pragma marks VLC delegate
 - (void)mediaPlayerStateChanged:(NSNotification *)aNotification
 {
-    
+    if (self.player.state == VLCMediaPlayerStateStopped) {
+        [[Bulb bulbGlobal] fire:[BulbVideoOverSignal signalDefault] data:nil];
+    }
 }
 
 - (void)mediaPlayerTimeChanged:(NSNotification *)aNotification
 {
     if (self.playerBarView.totalMillisecondes <= 1) {
-        [self.playerBarView setTotalMillisecondes:-self.player.remainingTime.value.integerValue];
+        [self.playerBarView setTotalMillisecondes:-self.player.remainingTime.value.integerValue + self.player.time.value.integerValue];
     } else {
         [self.playerBarView setMillisecondes:self.player.time.value.integerValue];
     }
