@@ -89,7 +89,7 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
     
 }
 
-- (NSArray *)getFilenamelist
+- (NSMutableArray *)getFilenamelist
 {
     NSMutableArray *filenamelist = [NSMutableArray array];
     NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
@@ -168,6 +168,29 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
         UIImage *placeHoldImg = [UIImage imageNamed:@"posters_default_horizontal"];
         return placeHoldImg;
     }
+}
+
+// 左滑删除
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString* path = [documentsPath stringByAppendingPathComponent:[[self getFilenamelist] objectAtIndex:indexPath.row]];
+    
+    [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+    
+    [[self getFilenamelist] removeObjectAtIndex:indexPath.row];
+    
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations
