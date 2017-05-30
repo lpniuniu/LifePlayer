@@ -124,8 +124,6 @@
     }];
     
     // 快进与快退
-
-    
     // 亮度与音量调节
     UIPanGestureRecognizer* pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(vol:)];
     [self.player.drawable addGestureRecognizer:pan];

@@ -8,13 +8,13 @@
 
 #import "ViewController.h"
 #import "PlayerViewController.h"
-
+#import "PlayerTableViewCell.h"
 
 #import <GCDWebUploader.h>
 #import <Bulb.h>
 #include <ifaddrs.h>
 #include <arpa/inet.h>
-
+#import <AVFoundation/AVFoundation.h>
 
 @implementation BulbFileNameSignal
 
@@ -73,7 +73,8 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
     
     self.title = [self getIPAddress];
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifiler];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableView registerClass:[PlayerTableViewCell class] forCellReuseIdentifier:cellIdentifiler];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -101,6 +102,11 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
 }
 
 # pragma marks data source
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 180;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [[self getFilenamelist] count];
@@ -108,8 +114,18 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifiler];
-    [[cell textLabel] setText:[[self getFilenamelist] objectAtIndex:indexPath.row]];;
+    PlayerTableViewCell* cell = (PlayerTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifiler forIndexPath:indexPath];
+    [[cell titleLabel] setText:[[self getFilenamelist] objectAtIndex:indexPath.row]];
+    
+    if ([cell isSelected]) {
+        [cell.titleLabel setTextColor:[UIColor orangeColor]];
+    } else {
+        [cell.titleLabel setTextColor:[UIColor whiteColor]];
+    }
+    
+    NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString* path = [documentsPath stringByAppendingPathComponent:[[self getFilenamelist] objectAtIndex:indexPath.row]];
+    cell.backImageView.image = [self getThumbnailImage:path];
     return cell;
 }
 
@@ -126,6 +142,32 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
     PlayerViewController* vc = [[PlayerViewController alloc] initWithPath:path];
     [[Bulb bulbGlobal] hungUp:[BulbFileNameSignal signalDefault] data:[path lastPathComponent]];
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (UIImage *)getThumbnailImage:(NSString *)videoPath {
+    if (videoPath) {
+        AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath: videoPath] options:nil];
+        AVAssetImageGenerator *gen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+        // 设定缩略图的方向
+        // 如果不设定，可能会在视频旋转90/180/270°时，获取到的缩略图是被旋转过的，而不是正向的
+        gen.appliesPreferredTrackTransform = YES;
+        // 设置图片的最大size(分辨率)
+        gen.maximumSize = CGSizeMake(300, 169);
+        CMTime time = CMTimeMakeWithSeconds(5.0, 600); //取第5秒，一秒钟600帧
+        NSError *error = nil;
+        CMTime actualTime;
+        CGImageRef image = [gen copyCGImageAtTime:time actualTime:&actualTime error:&error];
+        if (error) {
+            UIImage *placeHoldImg = [UIImage imageNamed:@"video_placeholder"];
+            return placeHoldImg;
+        }
+        UIImage *thumb = [[UIImage alloc] initWithCGImage:image];
+        CGImageRelease(image);
+        return thumb;
+    } else {
+        UIImage *placeHoldImg = [UIImage imageNamed:@"posters_default_horizontal"];
+        return placeHoldImg;
+    }
 }
 
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations
