@@ -16,6 +16,7 @@
 		0B11E2731EC9C7B6002D86BF /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2721EC9C7B6002D86BF /* libz.1.dylib */; };
 		0B11E2921EC9C8DC002D86BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2911EC9C8DC002D86BF /* QuartzCore.framework */; };
 		0B22CAD61ED0349100F0D3C3 /* libMobileVLCKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B22CAD51ED0349100F0D3C3 /* libMobileVLCKit.a */; };
+		0BB0760D1EDDA75200899F2D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2891EC9C8BA002D86BF /* MediaPlayer.framework */; };
 		523FB89C7A145533CAE4BD70 /* libPods-LifePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1894266AA2BF2C61F3E860F /* libPods-LifePlayer.a */; };
 		E34DAA4F1ED088AF003F127D /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E26F1EC9C764002D86BF /* libiconv.2.dylib */; };
 		E34DAA501ED088E7003F127D /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2741EC9C7D4002D86BF /* libbz2.1.0.dylib */; };
@@ -88,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BB0760D1EDDA75200899F2D /* MediaPlayer.framework in Frameworks */,
 				E34DAA561ED089B6003F127D /* AudioToolbox.framework in Frameworks */,
 				E34DAA551ED0898D003F127D /* VideoToolbox.framework in Frameworks */,
 				E34DAA541ED08953003F127D /* AVFoundation.framework in Frameworks */,

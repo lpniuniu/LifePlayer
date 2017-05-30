@@ -13,6 +13,7 @@
 #import <Masonry.h>
 #import <MobileVLCKit/MobileVLCKit.h>
 #import <Bulb.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @implementation BulbVideoOverSignal
 
@@ -26,6 +27,7 @@
 @property (nonatomic) TopBarView* topBarView;
 @property (nonatomic) BOOL toolBarIsVisible;
 @property (nonatomic) NSTimer* timer;
+@property (nonatomic) UISlider* volSlider;
 
 @end
 
@@ -122,13 +124,11 @@
     }];
     
     // 快进与快退
-    UISwipeGestureRecognizer* rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(fast:)];
-    [rightSwipe setDirection:UISwipeGestureRecognizerDirectionRight];
+
     
-    UISwipeGestureRecognizer* leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(fast:)];
-    [leftSwipe setDirection:UISwipeGestureRecognizerDirectionLeft];
-    [self.player.drawable addGestureRecognizer:rightSwipe];
-    [self.player.drawable addGestureRecognizer:leftSwipe];
+    // 亮度与音量调节
+    UIPanGestureRecognizer* pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(vol:)];
+    [self.player.drawable addGestureRecognizer:pan];
 }
 
 - (void)fast:(UISwipeGestureRecognizer *)swipe
@@ -137,6 +137,49 @@
         [self.player shortJumpBackward];
     } else {
         [self.player shortJumpForward];
+    }
+}
+
+- (void)vol:(UIPanGestureRecognizer *)pan
+{
+    CGPoint translation = [pan translationInView:self.view];
+    CGFloat absX = fabs(translation.x);
+    CGFloat absY = fabs(translation.y);
+    
+    if (MAX(absX, absY) < 10)
+        return;
+    if (absX > absY ) {
+        if (translation.x<0) {
+            [self.player extraShortJumpBackward];
+        }else{
+            [self.player extraShortJumpForward];
+        }
+    } else if (absY > absX) {
+        if (!self.volSlider) {
+            MPVolumeView* volview = [[MPVolumeView alloc] init];
+            for (UIView *view in [volview subviews]) {
+                if ([view.class.description isEqualToString:@"MPVolumeSlider"]) {
+                    self.volSlider = (UISlider *)view;
+                    break;
+                }
+            }
+        }
+        if (self.volSlider) {
+            CGPoint point = [pan locationInView:pan.view];
+            if (point.x > self.view.center.x) {
+                CGPoint velocity = [pan velocityInView:pan.view];
+                CGFloat ratio = 13000.f;
+                CGFloat nowVolumeValue = self.volSlider.value;
+                float changeValue = (nowVolumeValue - velocity.y/ratio);
+                [self.volSlider setValue:changeValue];
+            } else {
+                double currentLight = [[UIScreen mainScreen] brightness];
+                CGPoint velocity = [pan velocityInView:pan.view];
+                CGFloat ratio = 13000.f;
+                float changeValue = (currentLight - velocity.y/ratio);
+                [[UIScreen mainScreen] setBrightness:changeValue];
+            }
+        }
     }
 }
 
