@@ -9,11 +9,10 @@
 #import "ViewController.h"
 #import "PlayerViewController.h"
 #import "PlayerTableViewCell.h"
+#import "UploaderViewController.h"
 
 #import <GCDWebUploader.h>
 #import <Bulb.h>
-#include <ifaddrs.h>
-#include <arpa/inet.h>
 #import <AVFoundation/AVFoundation.h>
 
 @implementation BulbFileNameSignal
@@ -23,7 +22,7 @@
 
 static NSString* cellIdentifiler = @"cellIdentifiler";
 
-@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource, GCDWebUploaderDelegate>
 
 @property (nonatomic) GCDWebUploader* webServer;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -31,37 +30,6 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
 @end
 
 @implementation ViewController
-
-- (NSString *)getIPAddress {
-    
-    NSString *address = @"error";
-    struct ifaddrs *interfaces = NULL;
-    struct ifaddrs *temp_addr = NULL;
-    int success = 0;
-    // retrieve the current interfaces - returns 0 on success
-    success = getifaddrs(&interfaces);
-    if (success == 0) {
-        // Loop through linked list of interfaces
-        temp_addr = interfaces;
-        while(temp_addr != NULL) {
-            if(temp_addr->ifa_addr->sa_family == AF_INET) {
-                // Check if interface is en0 which is the wifi connection on the iPhone
-                if([[NSString stringWithUTF8String:temp_addr->ifa_name] isEqualToString:@"en0"]) {
-                    // Get NSString from C String
-                    address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)];
-                    
-                }
-                
-            }
-            
-            temp_addr = temp_addr->ifa_next;
-        }
-    }
-    // Free memory
-    freeifaddrs(interfaces);
-    return address;
-    
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -71,9 +39,10 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
     self.webServer = [[GCDWebUploader alloc] initWithUploadDirectory:documentsPath];
     self.webServer.header = @"念念播放器";
     self.webServer.prologue = @"拖放文件到此窗口上或使用“上传文件...”按钮";
+    self.webServer.delegate = self;
     [self.webServer start];
     
-    self.title = [self getIPAddress];
+    self.title = @"本地视频";
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[PlayerTableViewCell class] forCellReuseIdentifier:cellIdentifiler];
@@ -131,8 +100,9 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
     return cell;
 }
 
-- (IBAction)reloadList:(id)sender {
-    [self.tableView reloadData];
+- (IBAction)upload:(id)sender {
+    UploaderViewController* uploader = [[UploaderViewController alloc] init];
+    [self.navigationController pushViewController:uploader animated:YES];
 }
 
 # pragma marks table delegate
@@ -198,6 +168,40 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
+}
+
+
+#pragma marks GCDWebUploaderDelegate methods
+/**
+ *  This method is called whenever a file has been downloaded.
+ */
+- (void)webUploader:(GCDWebUploader*)uploader didDownloadFileAtPath:(NSString*)path
+{
+    [self.tableView reloadData];
+}
+
+/**
+ *  This method is called whenever a file has been uploaded.
+ */
+- (void)webUploader:(GCDWebUploader*)uploader didUploadFileAtPath:(NSString*)path
+{
+    [self.tableView reloadData];
+}
+
+/**
+ *  This method is called whenever a file or directory has been moved.
+ */
+- (void)webUploader:(GCDWebUploader*)uploader didMoveItemFromPath:(NSString*)fromPath toPath:(NSString*)toPath
+{
+    [self.tableView reloadData];
+}
+
+/**
+ *  This method is called whenever a file or directory has been deleted.
+ */
+- (void)webUploader:(GCDWebUploader*)uploader didDeleteItemAtPath:(NSString*)path
+{
+    [self.tableView reloadData];
 }
 
 @end

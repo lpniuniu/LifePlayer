@@ -18,6 +18,7 @@
 		0B22CAD61ED0349100F0D3C3 /* libMobileVLCKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B22CAD51ED0349100F0D3C3 /* libMobileVLCKit.a */; };
 		0BB0760D1EDDA75200899F2D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2891EC9C8BA002D86BF /* MediaPlayer.framework */; };
 		0BB076101EDDB75800899F2D /* PlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB0760F1EDDB75800899F2D /* PlayerTableViewCell.m */; };
+		0BB0761C1EDF12AB00899F2D /* UploaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB0761B1EDF12AB00899F2D /* UploaderViewController.m */; };
 		523FB89C7A145533CAE4BD70 /* libPods-LifePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1894266AA2BF2C61F3E860F /* libPods-LifePlayer.a */; };
 		E34DAA4F1ED088AF003F127D /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E26F1EC9C764002D86BF /* libiconv.2.dylib */; };
 		E34DAA501ED088E7003F127D /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11E2741EC9C7D4002D86BF /* libbz2.1.0.dylib */; };
@@ -70,6 +71,8 @@
 		0B22CAD71ED0349100F0D3C3 /* libMobileVLCKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobileVLCKit.a; path = LifePlayer/MobileVLCKit/libMobileVLCKit.a; sourceTree = "<group>"; };
 		0BB0760E1EDDB75800899F2D /* PlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewCell.h; sourceTree = "<group>"; };
 		0BB0760F1EDDB75800899F2D /* PlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewCell.m; sourceTree = "<group>"; };
+		0BB0761A1EDF12AB00899F2D /* UploaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploaderViewController.h; sourceTree = "<group>"; };
+		0BB0761B1EDF12AB00899F2D /* UploaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploaderViewController.m; sourceTree = "<group>"; };
 		0BEB13CC1ECEDA03004011D0 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8F23F5E596171C2D3E6BAAA9 /* Pods-LifePlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifePlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifePlayer/Pods-LifePlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		A1E7C4E996F1836D3FFE0251 /* Pods-LifePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifePlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifePlayer/Pods-LifePlayer.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				E386E2DA1ED4950C00F66C1A /* TopBarView.m */,
 				0BB0760E1EDDB75800899F2D /* PlayerTableViewCell.h */,
 				0BB0760F1EDDB75800899F2D /* PlayerTableViewCell.m */,
+				0BB0761A1EDF12AB00899F2D /* UploaderViewController.h */,
+				0BB0761B1EDF12AB00899F2D /* UploaderViewController.m */,
 			);
 			path = LifePlayer;
 			sourceTree = "<group>";
@@ -338,6 +343,7 @@
 				E396780A1ED33589001D8565 /* PlayerViewController.m in Sources */,
 				E386E2DB1ED4950C00F66C1A /* TopBarView.m in Sources */,
 				0B11E2401EC9C224002D86BF /* AppDelegate.mm in Sources */,
+				0BB0761C1EDF12AB00899F2D /* UploaderViewController.m in Sources */,
 				0B11E23D1EC9C224002D86BF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

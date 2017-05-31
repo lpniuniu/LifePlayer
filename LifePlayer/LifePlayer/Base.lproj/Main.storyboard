@@ -39,9 +39,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7El-8H-8xT">
-                        <barButtonItem key="rightBarButtonItem" title="load" id="3bv-Qx-y52">
+                        <barButtonItem key="rightBarButtonItem" title="上传视频" id="3bv-Qx-y52">
                             <connections>
-                                <action selector="reloadList:" destination="BYZ-38-t0r" id="gU9-Hi-ZdM"/>
+                                <action selector="upload:" destination="BYZ-38-t0r" id="DYS-Cd-yb4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
