@@ -69,6 +69,8 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
     // start server
     NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     self.webServer = [[GCDWebUploader alloc] initWithUploadDirectory:documentsPath];
+    self.webServer.header = @"念念播放器";
+    self.webServer.prologue = @"拖放文件到此窗口上或使用“上传文件...”按钮";
     [self.webServer start];
     
     self.title = [self getIPAddress];

@@ -6,7 +6,7 @@ target 'LifePlayer' do
   # use_frameworks!
 
   # Pods for LifePlayer
-  pod "GCDWebServer/WebUploader", "~> 3.0"
+  pod 'GCDWebServer/WebUploader', :git => 'https://github.com/lpniuniu/GCDWebServer.git', :branch => 'master', :inhibit_warnings => false
   pod 'Masonry'
   pod 'Bulb', :git => 'https://github.com/lpniuniu/bulb.git', :branch => 'master', :inhibit_warnings => false
 end

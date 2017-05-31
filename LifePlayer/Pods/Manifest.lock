@@ -8,41 +8,47 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.4.0):
     - CocoaLumberjack/Default
-  - GCDWebServer/CocoaLumberjack (3.3.3):
+  - GCDWebServer/CocoaLumberjack (3.3.4):
     - CocoaLumberjack (~> 2)
     - GCDWebServer/Core
-  - GCDWebServer/Core (3.3.3)
-  - GCDWebServer/WebUploader (3.3.3):
-    - GCDWebServer/WebUploader/CocoaLumberjack (= 3.3.3)
-    - GCDWebServer/WebUploader/Core (= 3.3.3)
-  - GCDWebServer/WebUploader/CocoaLumberjack (3.3.3):
+  - GCDWebServer/Core (3.3.4)
+  - GCDWebServer/WebUploader (3.3.4):
+    - GCDWebServer/WebUploader/CocoaLumberjack (= 3.3.4)
+    - GCDWebServer/WebUploader/Core (= 3.3.4)
+  - GCDWebServer/WebUploader/CocoaLumberjack (3.3.4):
     - GCDWebServer/CocoaLumberjack
     - GCDWebServer/WebUploader/Core
-  - GCDWebServer/WebUploader/Core (3.3.3):
+  - GCDWebServer/WebUploader/Core (3.3.4):
     - GCDWebServer/Core
   - Masonry (1.0.2)
 
 DEPENDENCIES:
   - Bulb (from `https://github.com/lpniuniu/bulb.git`, branch `master`)
-  - GCDWebServer/WebUploader (~> 3.0)
+  - GCDWebServer/WebUploader (from `https://github.com/lpniuniu/GCDWebServer.git`, branch `master`)
   - Masonry
 
 EXTERNAL SOURCES:
   Bulb:
     :branch: master
     :git: https://github.com/lpniuniu/bulb.git
+  GCDWebServer:
+    :branch: master
+    :git: https://github.com/lpniuniu/GCDWebServer.git
 
 CHECKOUT OPTIONS:
   Bulb:
     :commit: 0e4bd3d9db9e679a6bfd778b024486f35b5031d5
     :git: https://github.com/lpniuniu/bulb.git
+  GCDWebServer:
+    :commit: fbcf3fa96c9540f850eb913e4f5fcd8df419369f
+    :git: https://github.com/lpniuniu/GCDWebServer.git
 
 SPEC CHECKSUMS:
   Bulb: c659a6f7f76eacbc98c48d51563f5bbfa3b6c6c5
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
-  GCDWebServer: 1c39a1f0763e4eb492bee021e4270fce097d3555
+  GCDWebServer: 0bd712acb4f246ce04d2ac321d33278fb1f72e63
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
 
-PODFILE CHECKSUM: 6f1d2acc13d7070dd29aed795efae2e1b8ba7617
+PODFILE CHECKSUM: 3ee015b435419b13f4f7a1fc0d60587be3fddcb7
 
 COCOAPODS: 1.1.1

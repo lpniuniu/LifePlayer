@@ -24,7 +24,7 @@
         self.titleLabel = [[UILabel alloc] init];
         [self.titleLabel setTextColor:[UIColor whiteColor]];
         self.titleLabel.numberOfLines = 0;
-        self.titleLabel.textAlignment = NSTextAlignmentLeft;
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.titleLabel];
         [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).offset(10);
