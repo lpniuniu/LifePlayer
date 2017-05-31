@@ -61,7 +61,7 @@
     [self.view addSubview:self.ipLabel];
     [self.ipLabel setTextColor:[UIColor orangeColor]];
     [self.ipLabel setFont:[UIFont boldSystemFontOfSize:20]];
-    NSString* ipAndPort = [NSString stringWithFormat:@"%@:8080", [self getIPAddress]];
+    NSString* ipAndPort = [NSString stringWithFormat:@"http://%@:80/", [self getIPAddress]];
     [self.ipLabel setText:ipAndPort];
     [self.ipLabel sizeToFit];
     [self.ipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
