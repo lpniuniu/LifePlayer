@@ -46,6 +46,8 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[PlayerTableViewCell class] forCellReuseIdentifier:cellIdentifiler];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
