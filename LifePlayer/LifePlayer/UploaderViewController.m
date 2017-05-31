@@ -65,7 +65,7 @@
     [self.ipLabel setText:ipAndPort];
     [self.ipLabel sizeToFit];
     [self.ipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.view).offset(-self.ipLabel.frame.size.height/2);
+        make.centerY.equalTo(self.view).offset(-self.ipLabel.frame.size.height*3);
         make.centerX.equalTo(self.view);
         make.width.equalTo(@(self.ipLabel.frame.size.width));
         make.height.equalTo(@(self.ipLabel.frame.size.height));
@@ -75,7 +75,7 @@
     self.descriptionLabel.numberOfLines = 0;
     self.descriptionLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.descriptionLabel];
-    [self.descriptionLabel setText:@"在电脑浏览器地址栏输入上面地址，打开上传页面\n\n 为保证上传不中断，\n已帮您的手机暂时处于激活状态"];
+    [self.descriptionLabel setText:@"在电脑浏览器地址栏输入上面地址，打开上传页面\n\n 为保证上传不中断，\n本页面已帮您的手机暂时处于激活状态"];
     [self.descriptionLabel setFont:[UIFont systemFontOfSize:14]];
     [self.descriptionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.ipLabel.mas_bottom).offset(5);
