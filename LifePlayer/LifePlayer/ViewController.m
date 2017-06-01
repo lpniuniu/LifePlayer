@@ -10,6 +10,8 @@
 #import "PlayerViewController.h"
 #import "PlayerTableViewCell.h"
 #import "UploaderViewController.h"
+#import "PlayerBarView.h"
+#import "TopBarView.h"
 
 #import <GCDWebUploader.h>
 #import <Bulb.h>
@@ -114,6 +116,26 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
     PlayerViewController* vc = [[PlayerViewController alloc] initWithPath:path];
     [[Bulb bulbGlobal] hungUp:[BulbFileNameSignal signalDefault] data:[path lastPathComponent]];
     [self presentViewController:vc animated:YES completion:nil];
+    
+    NSInteger row = indexPath.row;
+    
+    [[Bulb bulbGlobal] registerSignal:[BulbNextSignal signalDefault] block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
+        
+        if (row >= [self getFilenamelist].count - 1) {
+            [tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]
+                                   animated:NO
+                             scrollPosition:UITableViewScrollPositionTop];
+            [[Bulb bulbGlobal] fire:[BulbTopBarViewDissmissSignal signalDefault] data:nil];
+        } else {
+            [[Bulb bulbGlobal] fire:[BulbTopBarViewDissmissSignal signalDefault] data:^(){
+                [tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:row + 1 inSection:0]
+                                         animated:NO
+                                   scrollPosition:UITableViewScrollPositionTop];
+                [self tableView:tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:row + 1 inSection:0]];
+            }];
+        }
+        return NO;
+    }];
 }
 
 - (UIImage *)getThumbnailImage:(NSString *)videoPath {

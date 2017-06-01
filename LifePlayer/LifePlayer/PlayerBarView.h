@@ -17,6 +17,10 @@
 
 @end
 
+@interface BulbNextSignal : BulbBoolSignal
+
+@end
+
 @interface PlayerBarView : UIView
 
 - (void)setTotalMillisecondes:(NSInteger)secondes;

@@ -18,6 +18,9 @@
 
 @implementation BulbPlayOrPauseSignal
 
+@end
+
+@implementation BulbNextSignal
 
 @end
 
@@ -27,6 +30,7 @@
 @property (nonatomic) UILabel* startTimeLabel;
 @property (nonatomic) UILabel* endTimeLabel;
 @property (nonatomic) UIButton* playBtn;
+@property (nonatomic) UIButton* nextBtn;
 @property (nonatomic) BOOL isPlay;
 
 @end
@@ -61,6 +65,17 @@
             make.width.equalTo(@50);
         }];
         
+        self.nextBtn = [[UIButton alloc] init];
+        [self.nextBtn setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
+        [self.nextBtn setImageEdgeInsets:UIEdgeInsetsMake(5, 0, 5, 0)];
+        [self addSubview:self.nextBtn];
+        [self.nextBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.bottom.equalTo(self);
+            make.right.equalTo(self).offset(-5);
+            make.width.equalTo(@40);
+        }];
+        [self.nextBtn addTarget:self action:@selector(next:) forControlEvents:UIControlEventTouchUpInside];
+        
         self.endTimeLabel = [[UILabel alloc] init];
         self.endTimeLabel.textAlignment = NSTextAlignmentCenter;
         [self.endTimeLabel setTextColor:[UIColor whiteColor]];
@@ -68,7 +83,7 @@
         [self addSubview:self.endTimeLabel];
         [self.endTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(self);
-            make.right.equalTo(self).offset(-5);
+            make.right.equalTo(self.nextBtn.mas_left).offset(-5);
             make.width.equalTo(@50);
         }];
         
@@ -164,6 +179,11 @@
         self.isPlay = YES;
     }
     [[Bulb bulbGlobal] fire:[BulbPlayOrPauseSignal signalDefault] data:@(self.isPlay)];
+}
+
+- (void)next:(id)sender
+{
+    [[Bulb bulbGlobal] fire:[BulbNextSignal signalDefault] data:nil];
 }
 
 -(void)setTotalMillisecondes:(NSInteger)milliseconds

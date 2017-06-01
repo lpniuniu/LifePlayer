@@ -94,7 +94,7 @@
     [[Bulb bulbGlobal] registerSignal:[BulbTopBarViewDissmissSignal signalDefault] block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
         if (weakSelf) {
             [weakSelf.player stop];
-            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+            [weakSelf dismissViewControllerAnimated:YES completion:firstData];
             return YES;
         } else {
             return NO;
@@ -254,9 +254,7 @@
 #pragma marks VLC delegate
 - (void)mediaPlayerStateChanged:(NSNotification *)aNotification
 {
-    if (self.player.state == VLCMediaPlayerStateStopped) {
-        [[Bulb bulbGlobal] fire:[BulbVideoOverSignal signalDefault] data:nil];
-    }
+    
 }
 
 - (void)mediaPlayerTimeChanged:(NSNotification *)aNotification
