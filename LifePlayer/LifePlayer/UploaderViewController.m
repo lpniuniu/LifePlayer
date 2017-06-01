@@ -22,7 +22,7 @@
 
 - (NSString *)getIPAddress {
     
-    NSString *address = @"获取IP失败，请连接wifi";
+    NSString *address = nil;
     struct ifaddrs *interfaces = NULL;
     struct ifaddrs *temp_addr = NULL;
     int success = 0;
@@ -61,7 +61,13 @@
     [self.view addSubview:self.ipLabel];
     [self.ipLabel setTextColor:[UIColor orangeColor]];
     [self.ipLabel setFont:[UIFont boldSystemFontOfSize:20]];
-    NSString* ipAndPort = [NSString stringWithFormat:@"http://%@:80/", [self getIPAddress]];
+
+    NSString* ipAndPort = nil;
+    if ([self getIPAddress]) {
+        ipAndPort = [NSString stringWithFormat:@"http://%@:80/", [self getIPAddress]];
+    } else {
+        ipAndPort = @"获取IP失败，请连接wifi";
+    }
     [self.ipLabel setText:ipAndPort];
     [self.ipLabel sizeToFit];
     [self.ipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
