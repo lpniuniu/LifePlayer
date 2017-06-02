@@ -117,22 +117,27 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
     [[Bulb bulbGlobal] hungUp:[BulbFileNameSignal signalDefault] data:[path lastPathComponent]];
     [self presentViewController:vc animated:YES completion:nil];
     
-    NSInteger row = indexPath.row;
-    
     [[Bulb bulbGlobal] registerSignal:[BulbNextSignal signalDefault] block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
+        
+        NSInteger row = tableView.indexPathForSelectedRow.row;
         
         if (row >= [self getFilenamelist].count - 1) {
             [tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]
                                    animated:NO
                              scrollPosition:UITableViewScrollPositionTop];
-            [[Bulb bulbGlobal] fire:[BulbTopBarViewDissmissSignal signalDefault] data:nil];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[Bulb bulbGlobal] fire:[BulbTopBarViewDissmissSignal signalDefault] data:nil];
+            });
+            
         } else {
-            [[Bulb bulbGlobal] fire:[BulbTopBarViewDissmissSignal signalDefault] data:^(){
-                [tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:row + 1 inSection:0]
-                                         animated:NO
-                                   scrollPosition:UITableViewScrollPositionTop];
-                [self tableView:tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:row + 1 inSection:0]];
-            }];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[Bulb bulbGlobal] fire:[BulbTopBarViewDissmissSignal signalDefault] data:^(){
+                    [tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:row + 1 inSection:0]
+                                           animated:NO
+                                     scrollPosition:UITableViewScrollPositionTop];
+                    [self tableView:tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:row + 1 inSection:0]];
+                }];
+            });
         }
         return NO;
     }];
