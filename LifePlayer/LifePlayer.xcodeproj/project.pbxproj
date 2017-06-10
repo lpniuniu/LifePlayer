@@ -32,6 +32,7 @@
 		E386E2DB1ED4950C00F66C1A /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E386E2DA1ED4950C00F66C1A /* TopBarView.m */; };
 		E396780A1ED33589001D8565 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39678091ED33589001D8565 /* PlayerViewController.m */; };
 		E396780D1ED339A7001D8565 /* PlayerBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E396780C1ED339A7001D8565 /* PlayerBarView.m */; };
+		E3DA40981EEC360400C478F0 /* PlayNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DA40971EEC360400C478F0 /* PlayNavigationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,8 @@
 		E39678091ED33589001D8565 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		E396780B1ED339A7001D8565 /* PlayerBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerBarView.h; sourceTree = "<group>"; };
 		E396780C1ED339A7001D8565 /* PlayerBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerBarView.m; sourceTree = "<group>"; };
+		E3DA40961EEC360400C478F0 /* PlayNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayNavigationViewController.h; sourceTree = "<group>"; };
+		E3DA40971EEC360400C478F0 /* PlayNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayNavigationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,8 @@
 				0BB0760F1EDDB75800899F2D /* PlayerTableViewCell.m */,
 				0BB0761A1EDF12AB00899F2D /* UploaderViewController.h */,
 				0BB0761B1EDF12AB00899F2D /* UploaderViewController.m */,
+				E3DA40961EEC360400C478F0 /* PlayNavigationViewController.h */,
+				E3DA40971EEC360400C478F0 /* PlayNavigationViewController.m */,
 			);
 			path = LifePlayer;
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 				0B11E2431EC9C224002D86BF /* ViewController.m in Sources */,
 				E386E2D81ED485B900F66C1A /* PlayerSlider.m in Sources */,
 				E396780D1ED339A7001D8565 /* PlayerBarView.m in Sources */,
+				E3DA40981EEC360400C478F0 /* PlayNavigationViewController.m in Sources */,
 				E396780A1ED33589001D8565 /* PlayerViewController.m in Sources */,
 				E386E2DB1ED4950C00F66C1A /* TopBarView.m in Sources */,
 				0B11E2401EC9C224002D86BF /* AppDelegate.mm in Sources */,

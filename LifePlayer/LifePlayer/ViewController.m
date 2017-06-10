@@ -192,11 +192,6 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
--(UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskPortrait;
-}
-
 
 #pragma marks GCDWebUploaderDelegate methods
 /**
