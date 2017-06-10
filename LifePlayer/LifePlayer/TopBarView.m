@@ -62,10 +62,11 @@
         self.fileNameLabel = [[UILabel alloc] init];
         [self.fileNameLabel setTextColor:[UIColor whiteColor]];
         BulbFileNameSignal* signal = (BulbFileNameSignal *)[[Bulb bulbGlobal] getSignalFromHungUpList:[BulbFileNameSignal identifier]];
-        [self.fileNameLabel setText:signal.data];
+        NSString *fileName = [signal.data stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        [self.fileNameLabel setText:fileName];
         [self addSubview:self.fileNameLabel];
         [self.fileNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.returnBtn.mas_right);
+            make.left.equalTo(self.returnBtn.mas_right).offset(-10);
             make.centerY.equalTo(self);
             make.height.equalTo(@40);
             make.width.equalTo(@249);
@@ -74,18 +75,18 @@
         UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dissmiss:)];
         self.fileNameLabel.userInteractionEnabled = YES;
         [self.fileNameLabel addGestureRecognizer:tap];
-        
-        self.deviceLabel = [[UILabel alloc] init];
-        [self.deviceLabel setTextColor:[UIColor whiteColor]];
-        [self.deviceLabel setText:[self deviceInfoString]];
-        self.deviceLabel.textAlignment = NSTextAlignmentRight;
-        [self addSubview:self.deviceLabel];
-        [self.deviceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self).offset(-15);
-            make.centerY.equalTo(self);
-            make.height.equalTo(@40);
-            make.width.equalTo(@249);
-        }];
+        // 用状态栏显示了
+//        self.deviceLabel = [[UILabel alloc] init];
+//        [self.deviceLabel setTextColor:[UIColor whiteColor]];
+//        [self.deviceLabel setText:[self deviceInfoString]];
+//        self.deviceLabel.textAlignment = NSTextAlignmentRight;
+//        [self addSubview:self.deviceLabel];
+//        [self.deviceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.right.equalTo(self).offset(-15);
+//            make.centerY.equalTo(self);
+//            make.height.equalTo(@40);
+//            make.width.equalTo(@249);
+//        }];
         
         [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refresh:) userInfo:nil repeats:YES];
         

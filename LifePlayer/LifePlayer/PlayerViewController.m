@@ -76,7 +76,7 @@
     [self.topBarView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
         make.height.equalTo(@40);
-        make.top.equalTo(self.view);
+        make.top.equalTo(self.view).offset(10);
         make.centerX.equalTo(self.view);
     }];
     
@@ -134,6 +134,8 @@
     // 亮度与音量调节
     UIPanGestureRecognizer* pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(vol:)];
     [self.player.drawable addGestureRecognizer:pan];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 - (void)fast:(UISwipeGestureRecognizer *)swipe
@@ -211,12 +213,22 @@
     [self play];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+}
+
 - (void)showToolBarShortTime
 {
     if (self.toolBarIsVisible) {
         [self hideToolBar];
         return ;
     }
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     
     [self.view bringSubviewToFront:self.playerBarView];
     [self.view bringSubviewToFront:self.topBarView];
@@ -241,6 +253,8 @@
 
 - (void)hideToolBar
 {
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    
     [UIView animateWithDuration:0.5 animations:^{
         self.playerBarView.alpha = 0;
         self.topBarView.alpha = 0;
@@ -259,10 +273,6 @@
     [super didReceiveMemoryWarning];
 }
 
-- (BOOL)prefersStatusBarHidden{
-    return YES;
-}
-
 #pragma marks VLC delegate
 - (void)mediaPlayerStateChanged:(NSNotification *)aNotification
 {
@@ -276,11 +286,6 @@
     } else {
         [self.playerBarView setMillisecondes:self.player.time.value.integerValue];
     }
-}
-
--(UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskLandscape;
 }
 
 @end
