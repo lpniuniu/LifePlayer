@@ -134,8 +134,6 @@
     // 亮度与音量调节
     UIPanGestureRecognizer* pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(vol:)];
     [self.player.drawable addGestureRecognizer:pan];
-    
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 - (void)fast:(UISwipeGestureRecognizer *)swipe
@@ -149,6 +147,11 @@
 
 - (void)vol:(UIPanGestureRecognizer *)pan
 {
+    CGPoint point = [pan locationInView:pan.view];
+    if (point.y > self.view.frame.size.height - 40) {
+        return ;
+    }
+    
     CGPoint translation = [pan translationInView:self.view];
     CGFloat absX = fabs(translation.x);
     CGFloat absY = fabs(translation.y);
@@ -172,7 +175,7 @@
             }
         }
         if (self.volSlider) {
-            CGPoint point = [pan locationInView:pan.view];
+            
             if (point.x > self.view.center.x) {
                 CGPoint velocity = [pan velocityInView:pan.view];
                 CGFloat ratio = 13000.f;
@@ -211,11 +214,15 @@
     [super viewWillAppear:animated];
     
     [self play];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    
+    [self.timer invalidate];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
@@ -285,6 +292,13 @@
         [self.playerBarView setTotalMillisecondes:-self.player.remainingTime.value.integerValue + self.player.time.value.integerValue];
     } else {
         [self.playerBarView setMillisecondes:self.player.time.value.integerValue];
+    }
+}
+
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    if (self.toolBarIsVisible) {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     }
 }
 
