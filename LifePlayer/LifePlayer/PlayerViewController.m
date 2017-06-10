@@ -51,8 +51,15 @@
     self.playerBarView = [[PlayerBarView alloc] init];
     self.playerBarView.alpha = 0;
     
+    UITapGestureRecognizer* doubleGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
+    doubleGesture.numberOfTapsRequired = 2;
+    [player.drawable addGestureRecognizer:doubleGesture];
+    
     UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showToolBarShortTime)];
+    [tapGesture requireGestureRecognizerToFail:doubleGesture];
     [player.drawable addGestureRecognizer:tapGesture];
+    
+    
     
     [self.view addSubview:self.playerBarView];
     [self.playerBarView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -225,6 +232,11 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:5 repeats:NO block:^(NSTimer * _Nonnull timer) {
         [self hideToolBar];
     }];
+}
+
+- (void)doubleTap:(id)gesture
+{
+    [self.playerBarView playOrPause:nil];
 }
 
 - (void)hideToolBar

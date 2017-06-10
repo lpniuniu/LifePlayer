@@ -27,4 +27,6 @@
 - (void)setMillisecondes:(NSInteger)secondes;
 - (NSInteger)totalMillisecondes;
 
+- (void)playOrPause:(id)sender;
+
 @end
