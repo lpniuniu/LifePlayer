@@ -104,7 +104,7 @@
 //            make.width.equalTo(@249);
 //        }];
         
-        [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refresh:) userInfo:nil repeats:YES];
+        // [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refresh:) userInfo:nil repeats:YES];
         
         __weak typeof(self) weakSelf = self;
         [[Bulb bulbGlobal] registerSignal:[BulbVideoOverSignal signalDefault] block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {

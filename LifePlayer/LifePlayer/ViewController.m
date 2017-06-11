@@ -54,6 +54,11 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     [self.tableView registerClass:[PlayerTableViewCell class] forCellReuseIdentifier:cellIdentifiler];
     
     self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     NSDictionary* dict = [[PINCache sharedCache] objectForKey:kLastMovieCahce];
     if (!dict) {
@@ -61,11 +66,6 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     } else {
         [self.continueBtn setTitle:@"继续上次收看"];
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
 
 }
 - (IBAction)continue:(id)sender {
@@ -78,9 +78,11 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
             [[self getFilenamelist] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 if ([path containsString:obj]) {
                     [self tableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:idx inSection:0]];
-                    [NSTimer scheduledTimerWithTimeInterval:1 repeats:NO block:^(NSTimer * _Nonnull timer) {
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                         [[Bulb bulbGlobal] fire:[BulbChangeTimeSignal signalDefault] data:time];
-                    }];
+                    });
+
                     *stop = YES;
                 }
             }];
