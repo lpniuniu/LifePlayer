@@ -21,11 +21,13 @@ PODS:
   - GCDWebServer/WebUploader/Core (3.3.4):
     - GCDWebServer/Core
   - Masonry (1.0.2)
+  - PINCache (2.3)
 
 DEPENDENCIES:
   - Bulb (from `https://github.com/lpniuniu/bulb.git`, branch `master`)
   - GCDWebServer/WebUploader (from `https://github.com/lpniuniu/GCDWebServer.git`, branch `master`)
   - Masonry
+  - PINCache
 
 EXTERNAL SOURCES:
   Bulb:
@@ -48,7 +50,8 @@ SPEC CHECKSUMS:
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
   GCDWebServer: 0bd712acb4f246ce04d2ac321d33278fb1f72e63
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
 
-PODFILE CHECKSUM: 3ee015b435419b13f4f7a1fc0d60587be3fddcb7
+PODFILE CHECKSUM: 261297ae9a917adc9588634cbcde88325362d523
 
 COCOAPODS: 1.1.1
