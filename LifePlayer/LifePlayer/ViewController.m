@@ -77,7 +77,7 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
 # pragma marks data source
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 180;
+    return self.view.frame.size.width/655.0 * 333.0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

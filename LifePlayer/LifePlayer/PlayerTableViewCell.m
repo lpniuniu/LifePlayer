@@ -22,13 +22,13 @@
         }];
         
         self.titleLabel = [[UILabel alloc] init];
-        [self.titleLabel setTextColor:[UIColor whiteColor]];
         self.titleLabel.numberOfLines = 0;
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.titleLabel];
         [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self).offset(10);
-            make.top.right.bottom.equalTo(self);
+            make.left.equalTo(self).offset(20);
+            make.right.equalTo(self).offset(-20);
+            make.top.bottom.equalTo(self);
         }];
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -42,7 +42,7 @@
     if (selected) {
         [self.titleLabel setTextColor:[UIColor orangeColor]];
     } else {
-        [self.titleLabel setTextColor:[UIColor whiteColor]];
+        [self.titleLabel setTextColor:[UIColor blackColor]];
     }
     
 }
