@@ -14,6 +14,9 @@
 #import <MobileVLCKit/MobileVLCKit.h>
 #import <Bulb.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <PINCache.h>
+
+static NSString* kLastMovieCahce = @"kLastMovieCahce";
 
 @implementation BulbVideoOverSignal
 
@@ -330,6 +333,10 @@
         [self.playerBarView setTotalMillisecondes:-self.player.remainingTime.value.integerValue + self.player.time.value.integerValue];
     } else {
         [self.playerBarView setMillisecondes:self.player.time.value.integerValue];
+        
+        // 记录播放
+        [[[PINCache sharedCache] diskCache] setObject:@{@"path":self.path,
+                                                        @"time":self.player.time.value} forKey:kLastMovieCahce];
     }
 }
 

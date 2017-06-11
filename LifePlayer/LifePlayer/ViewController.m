@@ -16,6 +16,8 @@
 #import <GCDWebUploader.h>
 #import <Bulb.h>
 #import <AVFoundation/AVFoundation.h>
+#import <PINCache.h>
+#import <Masonry.h>
 
 @implementation BulbFileNameSignal
 
@@ -23,11 +25,13 @@
 @end
 
 static NSString* cellIdentifiler = @"cellIdentifiler";
+static NSString* kLastMovieCahce = @"kLastMovieCahce";
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource, GCDWebUploaderDelegate>
 
 @property (nonatomic) GCDWebUploader* webServer;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *continueBtn;
 
 @end
 
@@ -50,11 +54,38 @@ static NSString* cellIdentifiler = @"cellIdentifiler";
     [self.tableView registerClass:[PlayerTableViewCell class] forCellReuseIdentifier:cellIdentifiler];
     
     self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
+    
+    NSDictionary* dict = [[PINCache sharedCache] objectForKey:kLastMovieCahce];
+    if (!dict) {
+        [self.continueBtn setTitle:@""];
+    } else {
+        [self.continueBtn setTitle:@"继续上次收看"];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+
+}
+- (IBAction)continue:(id)sender {
+    NSDictionary* dict = (NSDictionary *)[[[PINCache sharedCache] diskCache] objectForKey:kLastMovieCahce];
+    if (dict) {
+        NSString* path = [dict objectForKey:@"path"];
+        NSNumber* time = [dict objectForKey:@"time"];
+        
+        if (path && time) {
+            [[self getFilenamelist] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([path containsString:obj]) {
+                    [self tableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:idx inSection:0]];
+                    [NSTimer scheduledTimerWithTimeInterval:1 repeats:NO block:^(NSTimer * _Nonnull timer) {
+                        [[Bulb bulbGlobal] fire:[BulbChangeTimeSignal signalDefault] data:time];
+                    }];
+                    *stop = YES;
+                }
+            }];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {

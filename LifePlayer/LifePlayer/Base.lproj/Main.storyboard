@@ -39,6 +39,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7El-8H-8xT">
+                        <barButtonItem key="leftBarButtonItem" title="继续上次收看" id="xJP-aR-jOq">
+                            <connections>
+                                <action selector="continue:" destination="BYZ-38-t0r" id="vtS-1s-piM"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="上传视频" id="3bv-Qx-y52">
                             <connections>
                                 <action selector="upload:" destination="BYZ-38-t0r" id="DYS-Cd-yb4"/>
@@ -46,6 +51,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="continueBtn" destination="xJP-aR-jOq" id="x7p-HN-dkO"/>
                         <outlet property="tableView" destination="ANz-Kk-5Na" id="m85-yM-WBK"/>
                     </connections>
                 </viewController>
@@ -58,7 +64,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b1A-lW-IZS" customClass="PlayNavigationViewController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="o2o-ZK-qub">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="o2o-ZK-qub">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
