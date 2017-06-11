@@ -13,6 +13,10 @@
 
 @end
 
+@interface BulbTopBarViewRotateSignal : BulbBoolSignal
+
+@end
+
 @interface TopBarView : UIView
 
 @end

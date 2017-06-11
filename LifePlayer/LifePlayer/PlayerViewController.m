@@ -28,6 +28,7 @@
 @property (nonatomic) BOOL toolBarIsVisible;
 @property (nonatomic) NSTimer* timer;
 @property (nonatomic) UISlider* volSlider;
+@property (nonatomic, assign) BOOL landscapeRight;
 
 @end
 
@@ -59,8 +60,6 @@
     [tapGesture requireGestureRecognizerToFail:doubleGesture];
     [player.drawable addGestureRecognizer:tapGesture];
     
-    
-    
     [self.view addSubview:self.playerBarView];
     [self.playerBarView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
@@ -76,7 +75,7 @@
     [self.topBarView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
         make.height.equalTo(@40);
-        make.top.equalTo(self.view).offset(10);
+        make.top.equalTo(self.view).offset(15);
         make.centerX.equalTo(self.view);
     }];
     
@@ -124,6 +123,15 @@
                 [weakSelf hideToolBar];
             }];
             
+            return YES;
+        } else {
+            return NO;
+        }
+    }];
+    
+    [[Bulb bulbGlobal] registerSignal:[BulbTopBarViewRotateSignal signalDefault] block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
+        if (weakSelf) {
+            [weakSelf rotate];
             return YES;
         } else {
             return NO;
@@ -216,6 +224,36 @@
     [self play];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
+- (void)rotate
+{
+    if (self.landscapeRight) {
+        [self forcePortrait];
+    } else {
+        [self forceLandscapeRight];
+    }
+}
+
+- (void)forcePortrait
+{
+    self.landscapeRight = NO;
+    [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"orientation"];
+}
+
+- (void)forceLandscapeRight
+{
+    self.landscapeRight = YES;
+    [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationLandscapeRight] forKey:@"orientation"];
+}
+
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    if (self.landscapeRight) {
+        return UIInterfaceOrientationMaskLandscapeRight;
+    } else {
+        return UIInterfaceOrientationMaskPortrait;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated

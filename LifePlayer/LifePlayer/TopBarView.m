@@ -15,11 +15,16 @@
 
 @end
 
+@implementation BulbTopBarViewRotateSignal
+
+@end
+
 @interface TopBarView ()
 
 @property (nonatomic) UIButton* returnBtn;
 @property (nonatomic) UILabel* fileNameLabel;
 @property (nonatomic) UILabel* deviceLabel;
+@property (nonatomic) UIButton* rotationBtn;
 
 @end
 
@@ -75,6 +80,17 @@
         UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dissmiss:)];
         self.fileNameLabel.userInteractionEnabled = YES;
         [self.fileNameLabel addGestureRecognizer:tap];
+        
+        self.rotationBtn = [[UIButton alloc] init];
+        [self.rotationBtn setImage:[UIImage imageNamed:@"rotation"] forState:UIControlStateNormal];
+        [self addSubview:self.rotationBtn];
+        [self.rotationBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self).offset(-10);
+            make.centerY.equalTo(self);
+            make.height.equalTo(@40);
+            make.width.equalTo(@40);
+        }];
+        [self.rotationBtn addTarget:self action:@selector(rotate:) forControlEvents:UIControlEventTouchUpInside];
         // 用状态栏显示了
 //        self.deviceLabel = [[UILabel alloc] init];
 //        [self.deviceLabel setTextColor:[UIColor whiteColor]];
@@ -113,6 +129,11 @@
 - (void)dissmiss:(id)sender
 {
     [[Bulb bulbGlobal] fire:[BulbTopBarViewDissmissSignal signalDefault] data:nil];
+}
+
+- (void)rotate:(id)sender
+{
+    [[Bulb bulbGlobal] fire:[BulbTopBarViewRotateSignal signalDefault] data:nil];
 }
 
 @end
