@@ -192,8 +192,6 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     
     [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
     
-    [[self getFilenamelist] removeObjectAtIndex:indexPath.row];
-    
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
