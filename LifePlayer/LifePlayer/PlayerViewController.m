@@ -59,7 +59,7 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     doubleGesture.numberOfTapsRequired = 2;
     [player.drawable addGestureRecognizer:doubleGesture];
     
-    UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showToolBarShortTime)];
+    UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showToolBarShortTime:)];
     [tapGesture requireGestureRecognizerToFail:doubleGesture];
     [player.drawable addGestureRecognizer:tapGesture];
     
@@ -265,8 +265,15 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
 }
 
-- (void)showToolBarShortTime
+- (void)showToolBarShortTime:(UITapGestureRecognizer *)gesture
 {
+    if (gesture) {
+        CGPoint point = [gesture locationInView:gesture.view];
+        if (point.y > self.view.frame.size.height - 40) {
+            return ;
+        }
+    }
+    
     if (self.toolBarIsVisible) {
         [self hideToolBar];
         return ;
@@ -288,8 +295,13 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(hideToolBar) userInfo:nil repeats:NO];
 }
 
-- (void)doubleTap:(id)gesture
+- (void)doubleTap:(UITapGestureRecognizer *)gesture
 {
+    CGPoint point = [gesture locationInView:gesture.view];
+    if (point.y > self.view.frame.size.height - 40) {
+        return ;
+    }
+    
     [self.playerBarView playOrPause:nil];
 }
 
@@ -308,7 +320,7 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
 {
     [super viewDidAppear:animated];
     
-    [self showToolBarShortTime];
+    [self showToolBarShortTime:nil];
 }
 
 - (void)didReceiveMemoryWarning {
