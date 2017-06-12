@@ -90,8 +90,6 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
             [weakSelf.timer invalidate];
             weakSelf.timer = nil;
             
-            weakSelf.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:weakSelf selector:@selector(hideToolBar) userInfo:nil repeats:NO];
-            
             return YES;
         } else {
             return NO;
@@ -119,8 +117,6 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
             
             [weakSelf.timer invalidate];
             weakSelf.timer = nil;
-            
-            weakSelf.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:weakSelf selector:@selector(hideToolBar) userInfo:nil repeats:NO];
             
             return YES;
         } else {
@@ -291,8 +287,6 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     
     [self.timer invalidate];
     self.timer = nil;
-    
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(hideToolBar) userInfo:nil repeats:NO];
 }
 
 - (void)doubleTap:(UITapGestureRecognizer *)gesture
