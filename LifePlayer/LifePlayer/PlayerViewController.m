@@ -41,6 +41,7 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
 @property (nonatomic) UISlider* volSlider;
 @property (nonatomic) UIView* surfaceView;
 @property (nonatomic, assign) BOOL landscapeRight;
+@property (nonatomic) UIActivityIndicatorView* indicatorView;
 
 @end
 
@@ -56,6 +57,7 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     VLCMediaPlayer *player = [[VLCMediaPlayer alloc] initWithOptions:nil];
     self.player = player;
     player.drawable = self.view;
@@ -98,6 +100,15 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
         make.top.equalTo(self.topBarView.mas_bottom);
         make.bottom.equalTo(self.playerBarView.mas_top);
     }];
+    
+    self.indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.indicatorView.hidesWhenStopped = YES;
+    [self.view addSubview:self.indicatorView];
+    [self.indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+    }];
+    
+    [self.indicatorView startAnimating];
     
     __weak typeof(self) weakSelf = self;
     [[Bulb bulbGlobal] registerSignal:[BulbChangeTimeSignal signalDefault].on block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
@@ -331,6 +342,7 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     
     [[Bulb bulbGlobal] registerSignal:[BulbPlayerRunningSignal signalDefault] block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
         [self showToolBarShortTime:nil];
+        [self.indicatorView stopAnimating];
         return NO;
     }];
 }
@@ -342,7 +354,7 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
 #pragma marks VLC delegate
 - (void)mediaPlayerStateChanged:(NSNotification *)aNotification
 {
-    
+    NSLog(@"player status now is %d", self.player.state);
 }
 
 - (void)mediaPlayerTimeChanged:(NSNotification *)aNotification
