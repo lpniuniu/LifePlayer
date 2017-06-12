@@ -22,6 +22,14 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
 
 @end
 
+@interface BulbPlayerRunningSignal : BulbBoolSignal
+
+@end
+
+@implementation BulbPlayerRunningSignal
+
+@end
+
 @interface PlayerViewController () <VLCMediaPlayerDelegate>
 
 @property (nonatomic, copy) NSString* path;
@@ -321,7 +329,10 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
 {
     [super viewDidAppear:animated];
     
-    [self showToolBarShortTime:nil];
+    [[Bulb bulbGlobal] registerSignal:[BulbPlayerRunningSignal signalDefault] block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
+        [self showToolBarShortTime:nil];
+        return NO;
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -339,6 +350,8 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     if (self.playerBarView.totalMillisecondes <= 1) {
         [self.playerBarView setTotalMillisecondes:-self.player.remainingTime.value.integerValue + self.player.time.value.integerValue];
     } else {
+        [[Bulb bulbGlobal] fire:[BulbPlayerRunningSignal signalDefault] data:nil];
+        
         [self.playerBarView setMillisecondes:self.player.time.value.integerValue];
         
         // 记录播放
