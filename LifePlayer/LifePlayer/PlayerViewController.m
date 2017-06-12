@@ -31,6 +31,7 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
 @property (nonatomic) BOOL toolBarIsVisible;
 @property (nonatomic) NSTimer* timer;
 @property (nonatomic) UISlider* volSlider;
+@property (nonatomic) UIView* surfaceView;
 @property (nonatomic, assign) BOOL landscapeRight;
 
 @end
@@ -80,6 +81,14 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
         make.height.equalTo(@40);
         make.top.equalTo(self.view).offset(15);
         make.centerX.equalTo(self.view);
+    }];
+    
+    self.surfaceView = [[UIView alloc] init];
+    [self.view addSubview:self.surfaceView];
+    [self.surfaceView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.topBarView.mas_bottom);
+        make.bottom.equalTo(self.playerBarView.mas_top);
     }];
     
     __weak typeof(self) weakSelf = self;
@@ -136,7 +145,7 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     // 快进与快退
     // 亮度与音量调节
     UIPanGestureRecognizer* pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(vol:)];
-    [self.player.drawable addGestureRecognizer:pan];
+    [self.surfaceView addGestureRecognizer:pan];
 }
 
 - (void)fast:(UISwipeGestureRecognizer *)swipe
@@ -151,9 +160,6 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
 - (void)vol:(UIPanGestureRecognizer *)pan
 {
     CGPoint point = [pan locationInView:pan.view];
-    if (point.y > self.view.frame.size.height - 40) {
-        return ;
-    }
     
     CGPoint translation = [pan translationInView:self.view];
     CGFloat absX = fabs(translation.x);
@@ -279,6 +285,7 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     
     [self.view bringSubviewToFront:self.playerBarView];
     [self.view bringSubviewToFront:self.topBarView];
+    [self.view bringSubviewToFront:self.surfaceView];
     [UIView animateWithDuration:0.5 animations:^{
         self.playerBarView.alpha = 1;
         self.topBarView.alpha = 1;

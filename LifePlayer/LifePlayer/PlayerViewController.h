@@ -17,6 +17,4 @@
 
 - (instancetype)initWithPath:(NSString *)path;
 
-- (void)setTime:(NSNumber *)time;
-
 @end

@@ -94,7 +94,6 @@
             make.left.equalTo(self.startTimeLabel.mas_right).offset(5);
             make.right.equalTo(self.endTimeLabel.mas_left).offset(-5);
         }];
-        
         self.slider.minimumTrackTintColor = [UIColor whiteColor];
         [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
         
