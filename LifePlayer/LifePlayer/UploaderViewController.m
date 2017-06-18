@@ -37,18 +37,22 @@
                 if([[NSString stringWithUTF8String:temp_addr->ifa_name] isEqualToString:@"en0"]) {
                     // Get NSString from C String
                     address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)];
-                    
                 }
-                
             }
-            
             temp_addr = temp_addr->ifa_next;
         }
     }
     // Free memory
     freeifaddrs(interfaces);
-    return address;
     
+    if (address == nil) {
+        return nil;
+    }
+    
+
+    BulbSignal* signal = [[Bulb bulbGlobal] getSignalFromHungUpList:[BulbV6Url identifier]];
+    NSURL* url = signal.data;
+    return [url absoluteString];
 }
 
 - (void)viewDidLoad {
@@ -64,7 +68,7 @@
 
     NSString* ipAndPort = nil;
     if ([self getIPAddress]) {
-        ipAndPort = [NSString stringWithFormat:@"http://%@:80/", [self getIPAddress]];
+        ipAndPort = [self getIPAddress];
     } else {
         ipAndPort = @"获取IP失败，请连接wifi";
     }

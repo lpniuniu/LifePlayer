@@ -13,6 +13,10 @@
 
 @end
 
+@interface BulbV6Url : BulbBoolSignal
+
+@end
+
 @interface ViewController : UIViewController
 
 

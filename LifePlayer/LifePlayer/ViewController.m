@@ -24,6 +24,10 @@
 
 @end
 
+@implementation BulbV6Url
+
+@end
+
 static NSString* cellIdentifiler = @"cellIdentifiler";
 static NSString* kLastMovieCahce = @"kLastMovieCahce";
 
@@ -227,6 +231,11 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
 - (void)webUploader:(GCDWebUploader*)uploader didDeleteItemAtPath:(NSString*)path
 {
     [self.tableView reloadData];
+}
+
+- (void)webServerDidCompleteBonjourRegistration:(GCDWebServer*)server
+{
+    [[Bulb bulbGlobal] hungUp:[BulbV6Url signalDefault] data:server.bonjourServerURL];
 }
 
 @end
