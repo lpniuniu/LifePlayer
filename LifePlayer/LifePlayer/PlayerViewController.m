@@ -41,6 +41,7 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
 @property (nonatomic) UISlider* volSlider;
 @property (nonatomic) UIView* surfaceView;
 @property (nonatomic) UIActivityIndicatorView* indicatorView;
+@property (nonatomic, assign) BOOL landscapeRight;
 
 @end
 
@@ -243,14 +244,20 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     [self play];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    // 横屏显示
+    self.landscapeRight = YES;
+    [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationLandscapeRight] forKey:@"orientation"];
 }
 
 - (void)rotate
 {
-    NSNumber* orientation = [[UIDevice currentDevice] valueForKey:@"orientation"];
-    if (orientation.integerValue == UIInterfaceOrientationPortrait) {
+    if (!self.landscapeRight) {
+        self.landscapeRight = YES;
         [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationLandscapeRight] forKey:@"orientation"];
+        
     } else {
+        self.landscapeRight = NO;
         [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"orientation"];
     }
 }
@@ -258,11 +265,10 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     // 锁屏
-    NSNumber* orientation = [[UIDevice currentDevice] valueForKey:@"orientation"];
-    if (orientation.integerValue == UIInterfaceOrientationPortrait) {
+    if (!self.landscapeRight) {
         return UIInterfaceOrientationMaskPortrait;
     } else {
-        return UIInterfaceOrientationMaskLandscapeRight;
+        return UIInterfaceOrientationMaskLandscape;
     }
 }
 
@@ -332,6 +338,9 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     
     [[Bulb bulbGlobal] registerSignal:[BulbPlayerRunningSignal signalDefault] block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
         [self showToolBarShortTime:nil];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self hideToolBar];
+        });
         [self.indicatorView stopAnimating];
         return NO;
     }];
