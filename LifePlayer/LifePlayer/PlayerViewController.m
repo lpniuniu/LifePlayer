@@ -40,7 +40,6 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
 @property (nonatomic) NSTimer* timer;
 @property (nonatomic) UISlider* volSlider;
 @property (nonatomic) UIView* surfaceView;
-@property (nonatomic, assign) BOOL landscapeRight;
 @property (nonatomic) UIActivityIndicatorView* indicatorView;
 
 @end
@@ -248,31 +247,22 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
 
 - (void)rotate
 {
-    if (self.landscapeRight) {
-        [self forcePortrait];
+    NSNumber* orientation = [[UIDevice currentDevice] valueForKey:@"orientation"];
+    if (orientation.integerValue == UIInterfaceOrientationPortrait) {
+        [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationLandscapeRight] forKey:@"orientation"];
     } else {
-        [self forceLandscapeRight];
+        [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"orientation"];
     }
-}
-
-- (void)forcePortrait
-{
-    self.landscapeRight = NO;
-    [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"orientation"];
-}
-
-- (void)forceLandscapeRight
-{
-    self.landscapeRight = YES;
-    [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationLandscapeRight] forKey:@"orientation"];
 }
 
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
-    if (self.landscapeRight) {
-        return UIInterfaceOrientationMaskLandscapeRight;
-    } else {
+    // 锁屏
+    NSNumber* orientation = [[UIDevice currentDevice] valueForKey:@"orientation"];
+    if (orientation.integerValue == UIInterfaceOrientationPortrait) {
         return UIInterfaceOrientationMaskPortrait;
+    } else {
+        return UIInterfaceOrientationMaskLandscapeRight;
     }
 }
 
