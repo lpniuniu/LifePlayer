@@ -338,8 +338,9 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     
     [[Bulb bulbGlobal] registerSignal:[BulbPlayerRunningSignal signalDefault] block:^BOOL(id firstData, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
         [self showToolBarShortTime:nil];
+        __weak typeof(self) weakSelf = self;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self hideToolBar];
+            [weakSelf hideToolBar];
         });
         [self.indicatorView stopAnimating];
         return NO;
