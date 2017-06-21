@@ -25,6 +25,10 @@
 
 @end
 
+@interface BulbOpenUrlSignal : BulbBoolSignal
+
+@end
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

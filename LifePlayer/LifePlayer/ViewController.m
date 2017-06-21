@@ -12,6 +12,7 @@
 #import "UploaderViewController.h"
 #import "PlayerBarView.h"
 #import "TopBarView.h"
+#import "AppDelegate.h"
 
 #import <GCDWebUploader.h>
 #import <Bulb.h>
@@ -58,6 +59,16 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     [self.tableView registerClass:[PlayerTableViewCell class] forCellReuseIdentifier:cellIdentifiler];
     
     self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
+    
+    [[Bulb bulbGlobal] registerSignal:[[BulbOpenUrlSignal signalDefault] pickOffFromHungUp] block:^BOOL(NSURL* url, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
+        NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+        NSError* error = nil;
+        [[NSFileManager defaultManager] copyItemAtURL:url toURL:[NSURL URLWithString:documentsPath] error:&error];
+        NSLog(@"copy open url error %@", error);
+        
+        [self.tableView reloadData];
+        return YES;
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -194,7 +205,9 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     NSString* path = [documentsPath stringByAppendingPathComponent:[[self getFilenamelist] objectAtIndex:indexPath.row]];
     
-    [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+    NSError* error = nil;
+    [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+    NSLog(@"removeItemAtPath error %@", error);
     
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
