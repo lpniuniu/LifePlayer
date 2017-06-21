@@ -63,9 +63,11 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     [[Bulb bulbGlobal] registerSignal:[[BulbOpenUrlSignal signalDefault] pickOffFromHungUp] block:^BOOL(NSURL* url, NSDictionary<NSString *,BulbSignal *> *signalIdentifier2Signal) {
         NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
         NSError* error = nil;
-        [[NSFileManager defaultManager] copyItemAtURL:url toURL:[NSURL URLWithString:documentsPath] error:&error];
+        NSString* destPath = [documentsPath stringByAppendingPathComponent:[url lastPathComponent]];
+        [[NSFileManager defaultManager] copyItemAtURL:[url filePathURL] toURL:[NSURL fileURLWithPath:destPath] error:&error];
         NSLog(@"copy open url error %@", error);
-        
+        NSString* fileInInbox = [[documentsPath stringByAppendingPathComponent:@"Inbox"] stringByAppendingPathComponent:[url lastPathComponent]];
+        [[NSFileManager defaultManager] removeItemAtURL:[NSURL fileURLWithPath:fileInInbox] error:&error];
         [self.tableView reloadData];
         return YES;
     }];
@@ -117,6 +119,9 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     NSArray *fileList = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsPath error:nil];
     
     for (NSString *filename in fileList) {
+        if ([filename isEqualToString:@"Inbox"]) {
+            continue ;
+        }
         [filenamelist  addObject:filename];
     }
     return filenamelist;
