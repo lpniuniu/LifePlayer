@@ -165,6 +165,9 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     // 亮度与音量调节
     UIPanGestureRecognizer* pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(vol:)];
     [self.surfaceView addGestureRecognizer:pan];
+    
+    // 横屏显示
+    self.landscapeRight = YES;
 }
 
 - (void)fast:(UISwipeGestureRecognizer *)swipe
@@ -244,20 +247,18 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     [self play];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
-    // 横屏显示
-    self.landscapeRight = YES;
-    [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationLandscapeRight] forKey:@"orientation"];
 }
 
 - (void)rotate
 {
     if (!self.landscapeRight) {
         self.landscapeRight = YES;
+        [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"orientation"];
         [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationLandscapeRight] forKey:@"orientation"];
         
     } else {
         self.landscapeRight = NO;
+        [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationLandscapeRight] forKey:@"orientation"];
         [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"orientation"];
     }
 }
