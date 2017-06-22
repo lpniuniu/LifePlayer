@@ -14,8 +14,8 @@
 @interface UploaderViewController ()
 
 @property (nonatomic) UILabel* ipLabel;
-
 @property (nonatomic) UILabel* descriptionLabel;
+@property (nonatomic) UILabel* otherShareLabel;
 
 @end
 
@@ -93,6 +93,27 @@
         make.top.equalTo(self.ipLabel.mas_bottom).offset(5);
         make.centerX.equalTo(self.view);
     }];
+    
+    self.otherShareLabel = [[UILabel alloc] init];
+    [self.view addSubview:self.otherShareLabel];
+    [self.otherShareLabel setFont:[UIFont systemFontOfSize:12]];
+    [self.otherShareLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.descriptionLabel.mas_bottom).offset(20);
+        make.centerX.equalTo(self.view);
+    }];
+    self.otherShareLabel.textColor = [UIColor blueColor];
+    NSMutableAttributedString *content = [[NSMutableAttributedString alloc] initWithString:@"也可选用其他方式分享"];
+    NSRange contentRange = {0, [content length]};
+    [content addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:contentRange];
+    self.otherShareLabel.attributedText = content;
+    self.otherShareLabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer* tapLink = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapLink:)];
+    [self.otherShareLabel addGestureRecognizer:tapLink];
+}
+
+- (void)tapLink:(UITapGestureRecognizer *)gesture
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.jianshu.com/p/50f0aa5c5525"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
