@@ -14,6 +14,7 @@
 @interface UploaderViewController ()
 
 @property (nonatomic) UILabel* ipLabel;
+
 @property (nonatomic) UILabel* descriptionLabel;
 
 @end
@@ -48,11 +49,8 @@
     if (address == nil) {
         return nil;
     }
-    
 
-    BulbSignal* signal = [[Bulb bulbGlobal] getSignalFromHungUpList:[BulbV6Url identifier]];
-    NSURL* url = signal.data;
-    return [url absoluteString];
+    return address;
 }
 
 - (void)viewDidLoad {
@@ -62,20 +60,24 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.ipLabel = [[UILabel alloc] init];
+    self.ipLabel.numberOfLines = 0;
     [self.view addSubview:self.ipLabel];
+    self.ipLabel.textAlignment = NSTextAlignmentCenter;
     [self.ipLabel setTextColor:[UIColor orangeColor]];
     [self.ipLabel setFont:[UIFont boldSystemFontOfSize:20]];
 
     NSString* ipAndPort = nil;
     if ([self getIPAddress]) {
-        ipAndPort = [self getIPAddress];
+        BulbSignal* signal = [[Bulb bulbGlobal] getSignalFromHungUpList:[BulbV6Url identifier]];
+        NSURL* url = signal.data;
+        ipAndPort = [NSString stringWithFormat:@"http://%@:80\n或者\n%@", [self getIPAddress], [url absoluteString]];
     } else {
         ipAndPort = @"获取IP失败，请连接wifi";
     }
     [self.ipLabel setText:ipAndPort];
     [self.ipLabel sizeToFit];
     [self.ipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.view).offset(-self.ipLabel.frame.size.height*3);
+        make.centerY.equalTo(self.view).offset(-72);
         make.centerX.equalTo(self.view);
         make.width.equalTo(@(self.ipLabel.frame.size.width));
         make.height.equalTo(@(self.ipLabel.frame.size.height));
