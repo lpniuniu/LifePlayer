@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -44,11 +45,18 @@
                                 <action selector="continue:" destination="BYZ-38-t0r" id="vtS-1s-piM"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="上传视频" id="3bv-Qx-y52">
-                            <connections>
-                                <action selector="upload:" destination="BYZ-38-t0r" id="DYS-Cd-yb4"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="上传" id="3bv-Qx-y52">
+                                <connections>
+                                    <action selector="upload:" destination="BYZ-38-t0r" id="DYS-Cd-yb4"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="刷新列表" id="Tcc-6Z-458">
+                                <connections>
+                                    <action selector="refresh:" destination="BYZ-38-t0r" id="X8U-7K-6Cq"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="continueBtn" destination="xJP-aR-jOq" id="x7p-HN-dkO"/>

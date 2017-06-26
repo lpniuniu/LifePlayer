@@ -158,6 +158,9 @@ static NSString* kLastMovieCahce = @"kLastMovieCahce";
     [self.navigationController pushViewController:uploader animated:YES];
 }
 
+- (IBAction)refresh:(id)sender {
+    [self.tableView reloadData];
+}
 # pragma marks table delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
