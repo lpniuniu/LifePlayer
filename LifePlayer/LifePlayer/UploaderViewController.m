@@ -70,7 +70,11 @@
     if ([self getIPAddress]) {
         BulbSignal* signal = [[Bulb bulbGlobal] getSignalFromHungUpList:[BulbV6Url identifier]];
         NSURL* url = signal.data;
-        ipAndPort = [NSString stringWithFormat:@"http://%@:80\n或者\n%@", [self getIPAddress], [url absoluteString]];
+        if ([[self getIPAddress] hasPrefix:@"169"]) {
+            ipAndPort = [NSString stringWithFormat:@"%@", [url absoluteString]];
+        } else {
+            ipAndPort = [NSString stringWithFormat:@"http://%@:80", [self getIPAddress]];
+        }
     } else {
         ipAndPort = @"获取IP失败，请连接wifi";
     }
