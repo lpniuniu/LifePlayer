@@ -46,12 +46,12 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="上传" id="3bv-Qx-y52">
+                            <barButtonItem title="上传视频" id="3bv-Qx-y52">
                                 <connections>
                                     <action selector="upload:" destination="BYZ-38-t0r" id="DYS-Cd-yb4"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="刷新列表" id="Tcc-6Z-458">
+                            <barButtonItem title="刷新" id="Tcc-6Z-458">
                                 <connections>
                                     <action selector="refresh:" destination="BYZ-38-t0r" id="X8U-7K-6Cq"/>
                                 </connections>

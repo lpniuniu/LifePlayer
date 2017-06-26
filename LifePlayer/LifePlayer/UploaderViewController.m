@@ -9,6 +9,7 @@
 #import "UploaderViewController.h"
 #include <ifaddrs.h>
 #include <arpa/inet.h>
+#include <netdb.h>
 #import <Masonry.h>
 
 @interface UploaderViewController ()
